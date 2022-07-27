@@ -8,4 +8,7 @@ console.log("b:", b);
 
 var c = 7;
 c += 1;
-console.log('c:', c)
+console.log('c:', c);
+
+const isComing = confirm("Please confirm hotel reservation");
+console.log(isComing);
