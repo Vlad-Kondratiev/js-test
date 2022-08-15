@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 // console.log("Hello");
 // const a = 10;
 // console.log('index a:', a);
@@ -16,11 +16,22 @@
 // console.log('парне число:', y % 2 === 0); //парне число
 // console.log('не парне число:', y % 2 !== 0); //не парне число
 
-let i = 1;
-console.log(i);
+// let i = 1;
+// console.log(i);
 
-i = i + 1;
-console.log(i);
+// i = i + 1;
+// console.log(i);
 
-i += 1;
-console.log(i);
+// i += 1;
+// console.log(i);
+
+const age = 10;
+const totalPrice = 200.74;
+const userName = "Chalsy";
+const massage = "Welcome";
+const isOpen = true;
+const shouldConfirm = false;
+
+const x = 10;
+
+console.log(totalPrice);
