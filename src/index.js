@@ -1,7 +1,7 @@
-// "use strict";
-// console.log("Hello");
-// const a = 10;
-// console.log('index a:', a);
+"use strict";
+console.log("Hello");
+const a = 10;
+console.log('index a:', a);
 
 // Спрашиваем имя отеля в котором хотел бы остановится клиент
 // и сохраняем в переменную результат вызова prompt.
@@ -25,13 +25,13 @@
 // i += 1;
 // console.log(i);
 
-const age = 10;
-const totalPrice = 200.74;
-const userName = "Chalsy";
-const massage = "Welcome";
-const isOpen = true;
-const shouldConfirm = false;
+// const age = 10;
+// const totalPrice = 200.74;
+// const userName = "Chalsy";
+// const massage = "Welcome";
+// const isOpen = true;
+// const shouldConfirm = false;
 
-const x = 10;
+// const x = 10;
 
-console.log(totalPrice);
+// console.log(totalPrice);
