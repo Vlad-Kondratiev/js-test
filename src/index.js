@@ -1,7 +1,7 @@
-"use strict";
-console.log("Hello");
-const a = 10;
-console.log('index a:', a);
+// "use strict";
+// console.log("Hello");
+// const a = 10;
+// console.log('index a:', a);
 
 // Спрашиваем имя отеля в котором хотел бы остановится клиент
 // и сохраняем в переменную результат вызова prompt.
@@ -24,7 +24,7 @@ console.log('index a:', a);
 
 // i += 1;
 // console.log(i);
-
+// =====================
 // const age = 10;
 // const totalPrice = 200.74;
 // const userName = "Chalsy";
@@ -34,4 +34,29 @@ console.log('index a:', a);
 
 // const x = 10;
 
-// console.log(totalPrice);
+// console.log('Price', totalPrice);
+
+// const type = typeof isOpen;
+// console.log(type);
+// ========================
+// console.log('Do');
+// alert('cdcdcdcdc');
+// console.log('Posle');
+
+// ========================
+// Хотите продлить подписку?
+// const message = 'Хотите продлить подписку?'
+// const shouldRenew = confirm(message);
+// console.log(shouldRenew);
+
+// ========================
+// let quantity = prompt('Введите количество товара');
+// quantity = Number (quantity);
+// console.log(quantity);
+// console.log(typeof quantity);
+
+// ========================
+let elementWidth = '50px';
+elementWidth = Number.parseInt(elementWidth);
+console.log('elementWidth ', elementWidth);
+console.log(typeof elementWidth);
