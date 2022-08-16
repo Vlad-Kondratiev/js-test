@@ -139,25 +139,42 @@ let salary = 1300.16472;
 // console.log(message.length);
 
 // ==== Конкатенация строк =====
-const firstName = 'Chelsy';
-const lastName = 'Emerald';
-const fullName = firstName + ' ' + lastName;
-console.log(fullName);
+// const firstName = 'Chelsy';
+// const lastName = 'Emerald';
+// const fullName = firstName + ' ' + lastName;
+// console.log(fullName);
 
 const room = 716;
 const type = 'VIP';
 // const welcomeMsg = 'Гость' + ' ' + firstName + ' ' + lastName + ' ' + 'поселяется в' + " " + type + ' ' + 'номкр' + ' ' + room;
-const welcomeMsg = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
-console.log(welcomeMsg);
+// const welcomeMsg = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
+// console.log(welcomeMsg);
 
 // ===== Шаблонные строки (template strings) 
-const quantity = 5;
-const orderMsg = `Вы заказываете ${quantity} холодильников`;
-console.log(orderMsg);
+// const quantity = 5;
+// const orderMsg = `Вы заказываете ${quantity} холодильников`;
+// console.log(orderMsg);
 
 // ==== Нормализация с методом toLowerCase() ====
-let brand = prompt('Давай бренд');
-brand = brand.toLowerCase();
-console.log(brand);
+// let brand = prompt('Давай бренд');
+// brand = brand.toLowerCase();
+// console.log(brand);
 
+// ===== Поиск в строке с методом includes() =====
+// const blacklisteWord1 = 'спам';
+// const blacklisteWord2 = 'распродажа';
+
+// const string1 = 'Привет, это не спам';
+// const string2 = 'Самая большая РАСПРОДАЖА этой недели';
+// const string3 = 'Рекламная компания началась';
+
+// console.log(string1.includes(blacklisteWord1));
+// console.log(string1.includes(blacklisteWord2));
+
+// console.log(string2.includes(blacklisteWord1));
+// const normalizedString2 = string2.toLowerCase();
+// console.log(normalizedString2.includes(blacklisteWord2));
+
+// console.log(string3.includes(blacklisteWord1));
+// console.log(string3.includes(blacklisteWord2));
 
