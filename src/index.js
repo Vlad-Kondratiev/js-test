@@ -56,20 +56,20 @@
 // console.log(typeof quantity);
 
 // ========================
-let elementWidth = '50px';
+// let elementWidth = '50px';
 // elementWidth = Number.parseInt(elementWidth);
 // console.log('elementWidth ', elementWidth);
 // console.log(typeof elementWidth);
 
 // ========================
-let elementHeight = '200.74px'; 
+// let elementHeight = '200.74px'; 
 // elementHeight = Number.parseFloat(elementHeight);
 // console.log('elementHeight ', elementHeight);
 // console.log(typeof elementHeight);
 
 // = Отсекает заданное кол-во цифр после запятой =
 
-let salary = 1300.16472;
+// let salary = 1300.16472;
 // salary = salary.toFixed(2);
 // salary = Number(salary);
 // Предыдущие две строки монно записать так
@@ -144,8 +144,8 @@ let salary = 1300.16472;
 // const fullName = firstName + ' ' + lastName;
 // console.log(fullName);
 
-const room = 716;
-const type = 'VIP';
+// const room = 716;
+// const type = 'VIP';
 // const welcomeMsg = 'Гость' + ' ' + firstName + ' ' + lastName + ' ' + 'поселяется в' + " " + type + ' ' + 'номкр' + ' ' + room;
 // const welcomeMsg = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
 // console.log(welcomeMsg);
@@ -178,3 +178,124 @@ const type = 'VIP';
 // console.log(string3.includes(blacklisteWord1));
 // console.log(string3.includes(blacklisteWord2));
 
+// ======= Операторы сравнения ========
+// console.log(15 < 3);
+
+// ======= При таком сравнении всегда происходит приведение к числу
+// console.log('15' < 3);
+
+// ======= Операторы равенства (== и ===) и неравенства (!= и !==)
+// ВСЕГДА ИСПОЛЬЗУЕМ СТРОГОЕ РАВЕНСТВО (===) И НЕРАВЕНСТВО (!==)
+// const isEqual = 1 === 1;
+// console.log(isEqual);
+
+// ======= Приведение к булю 
+// console.log(Boolean(0));
+// ======= 6 ложных значений приводящих к false
+// ======= 0, NaN, Null, undefined, " ", ' ', false
+
+// ======= Напиши скрипт проверяющий вхождение числа в отрезок ограниченный х1 и х2
+//  - До х1
+//  - После х2
+//  - От х1 до х2
+//  - До х1 или после х2
+
+// const x1 = 10;
+// const x2 = 30;
+// const number = 15;
+// console.log(`Число ${number} попадает в отрезок до ${x1}? ` , number < x1);
+// console.log(`Число ${number} попадает в отрезок после ${x2}? ` , number > x2);
+
+// ====== && - логическое и =======
+// const res1 = number > x1 && number < x2;
+// number > x1 && number < x2
+// 50 > 10 && 50 < 30
+// true && false
+// false
+
+// 5 > 10 && 5 < 30
+// false && true
+// false
+
+// 15 > 10 && 15 < 30
+// true && true
+// true
+// console.log(`Число ${number} попадает в отрезок от ${x1} до ${x2}? `, res1);
+
+// ====== || - логическое или ======
+// const res2 = number < x1 || number > x2;
+// 150 < 10 || 150 > 30
+// false || true
+// false
+// console.log(`Число ${number} попадает в отрезок до ${x1} или после ${x2}? `, res2);
+
+// Напишите скрипт проверяющий возможность открыть чат с пользователем
+// Пользователь должен быть:
+// - другом
+// - онлайн
+// - без режима не беспокоить
+
+// const isOnline = true;
+// const isFriend = true;
+// const isDnd = false;
+
+// const canOpenChat = isOnline && isFriend && !isDnd;
+// console.log('Можно открыть чат? ', canOpenChat);
+
+// Напиши скрипт проверки подписки пользователя при доступе к контенту
+// Есть три типа подписки: free, pro, vip
+// Получить доступ могут только pro и vip
+// const sub = 'pro';
+// Если пользователь pro или vip тогда есть доступ
+// const canAccessContent = sub === 'pro' || sub === 'vip';
+// const sub = 'pro'
+// true || false => true
+
+// const sub = 'vip'
+// false || true => true
+
+// const sub = 'free'
+// false || false => false
+
+// console.log('Есть доступ к контенту?', canAccessContent);
+
+// if (0) {
+//     // Если if (0) = true то тело выполняется, если false то нет
+//     console.log('deded');
+// }
+// console.log('дальше');
+
+// Оператор ветвления if...else
+// if (50 < 30) {
+//     console.log('x > y');
+// } else {
+//     console.log('x < y');
+// }
+
+// Оператор ветвления ilse...if
+// const salary = 590;
+// if (salary <= 500) {
+//     console.log('уровень 1');
+// } else if(salary > 500 && salary <= 1500) {
+//     console.log('уровень 2');
+// } else if(salary > 1500 && salary < 3000) {
+//     console.log('уровень 3');
+// } else {
+//     console.log('уровень 4');
+// }
+// console.log('Выполнено');
+
+// Тернарный оператор
+const balance = -1590;
+// let message;
+
+// if (balance >= 0) {
+//     message = 'Позитивный баланс';
+// } else {
+//     message = 'Негативный баланс';
+// }
+
+// const message = условие ? выражение1 : выражение2;
+const message = balance >= 0 ? 'Позитивный баланс' : 'Негативный баланс';
+
+console.log(message);
