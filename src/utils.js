@@ -1,15 +1,132 @@
-"use strict";
-// const a = 5;
-// console.log('utils a:', a);
+// Напиши скрипт выбора стоимости отеля по кол-ву звезд
+// 1 - 20$, 2 - 30$, 3 - 50$, 4 - 70$, 5 - 120$
 
-// let b = 5;
-// b += 1;
+// Если в переменной stars что-то кроме чисел 1-5 выведи строку 'Такого кол-ва звезд нет'
 
-// console.log("b:", b);
+// const stars = 5;
+// let price;
 
-// var c = 7;
-// c += 1;
-// console.log('c:', c);
+// if (stars === 1) {
+//     price = 20;
+// } else if(stars === 2) {
+//     price = 30;
+// } else if(stars === 3) {
+//     price = 50;
+// } else if(stars === 4) {
+//     price = 70;
+// } else if(stars === 5) {
+//     price = 120;
+// } else {
+//     console.log('Такого кол-ва звезд нет');
+// }
 
-// const isComing = confirm("Please confirm hotel reservation");
-// console.log(isComing);
+// switch(stars) {
+//     case 1:
+//         price = 20;
+//         break; 
+
+//     case 2:
+//         price = 30;
+//         break;
+
+//     case 3:
+//         price = 50;
+//         break; 
+            
+//     case 4:
+//         price = 70;
+//         break;
+
+//     case 5:
+//         price = 120;
+//         break; 
+
+//     default:
+//         console.log('Такого кол-ва звезд нет');
+// }
+
+// console.log(price);
+
+// Напиши скрипт выбора стоимости отеля по кол-ву звезд
+// 1, 2 - 20$, 4, 4 - 30$, 5 - 120$
+
+// const stars = 3;
+// let price;
+
+// if (stars === 1 || stars === 2) {
+//     price = 20;
+// } else if(stars === 3 || stars === 4) {
+//     price = 30;
+// } else if(stars === 5) {
+//     price = 120;
+// } else {
+//     console.log('Такого кол-ва звезд нет');
+// }
+
+// console.log(price);
+
+// switch(stars) {
+//     case 1:
+//     case 2:    
+//         price = 20;
+//         break;
+
+//     case 3:
+//     case 4:
+//         price = 30;
+//         break;         
+
+//     case 5:
+//         price = 120;
+//         break; 
+
+//     default:
+//         console.log('Такого кол-ва звезд нет');
+// }
+
+// console.log(price);
+
+// Напиши скрипт выбора опций доставки товара
+// Опция хранится в переменной option: 1 - самовывоз, 2 - курьер, 3 - почта
+// В переменную message записать сообщение в зависимости от опции
+// 'Вы можете забрать товар завтра с 12:00 в нашем офисе'
+// 'Курьер доставит заказ завтра с 9:00 до 17:00'
+// 'Посылка будет отправлена сегодня'
+// 'Вам перезвонит менеджер'
+
+// 1. Создать переменные
+// const option = 1;
+// let message = '';
+
+// 2. Сделать switch 1, 2, 3
+// 3. В каждом case записать в message строку
+// switch(option) {
+//     case 1:
+//         message = 'Вы можете забрать товар завтра с 12:00 в нашем офисе';
+//         break;
+
+//     case 2:
+//         message = 'Вы можете забрать товар завтра с 12:00 в нашем офисе';
+//         break;
+
+//     case 3:
+//         message = 'Вы можете забрать товар завтра с 12:00 в нашем офисе';
+//         break;
+
+//     default:
+//         message = 'Вам перезвонит менеджер';
+// }
+
+// 4. Сделать log message
+// console.log(message);
+
+// ====== Цикл for =======
+// for (инициализация; условие; пост - выражение) (
+        // Тело цикла
+// )
+
+for (let i = 1; i < 20; i += 1) {
+    console.log(i);
+}
+
+console.log('dededede');

@@ -286,7 +286,7 @@
 // console.log('Выполнено');
 
 // Тернарный оператор
-const balance = -1590;
+// const balance = -1590;
 // let message;
 
 // if (balance >= 0) {
@@ -296,6 +296,6 @@ const balance = -1590;
 // }
 
 // const message = условие ? выражение1 : выражение2;
-const message = balance >= 0 ? 'Позитивный баланс' : 'Негативный баланс';
+// const message = balance >= 0 ? 'Позитивный баланс' : 'Негативный баланс';
 
-console.log(message);
+// console.log(message);
