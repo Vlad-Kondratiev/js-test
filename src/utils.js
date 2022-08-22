@@ -184,20 +184,51 @@ console.log('totalSalary: ', totalSalary);
 // console.log('total: ', total);
 
 // 2-й вариант
-const min = 6;
-const max = 13;
-let total = 0;
+// const min = 6;
+// const max = 13;
+// let total = 0;
 
-for (let i = min; i <= max; i += 1) {
-    console.log(i);
+// for (let i = min; i <= max; i += 1) {
+//     console.log(i);
 
-    if (i % 2 !== 0) {
-        console.log('не четное: ', i);
-        continue;
-    }
+//     if (i % 2 !== 0) {
+//         console.log('не четное: ', i);
+//         continue;
+//     }
     
-    console.log('четное: ', i);
-    total += i;   
-}
+//     console.log('четное: ', i);
+//     total += i;   
+// }
 
-console.log('total: ', total);
+// console.log('total: ', total);
+
+// Напиши скрипт обработки покупки в магазине
+// - Баланс пользователя хранится в переменной balance
+// - Баланс покупки в payment
+// - Перед проверкой вывести сооющение
+// "Общая стоимость заказа [число] кредитов. Проверяем кол-во средств на вашем счету"
+// Если сумма заказа не превышает баланс:
+// - Вычесть из баланса сумму покупки
+// - Вывести сообщение: "На счету осталось (...) кредитов"
+// Если сумма заказа превышает баланс:
+// - Вывести сообщение: "На счету недостаточно средств"
+// - Вывести сообщение: "Операция завершена"
+
+// 1. Вары
+let balance = 1500;
+const payment =2000;
+
+console.log(
+    `Общая стоимость заказа ${payment} кредитов. Проверяем кол-во средств на вашем счету`,
+);
+
+if (balance >= payment) {
+    console.log('Ok');
+
+    balance -= payment;
+
+        console.log(`На счету осталось ${balance} кредитов`);
+} else {
+        console.log('На счету недостаточно средств');
+}
+console.log('Операция завершена');
