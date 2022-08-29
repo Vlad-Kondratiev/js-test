@@ -5,7 +5,7 @@
 // const diff = grapes - apples;
 // console.log(diff);
 
-// ================================
+// =============================================
 
 // let students = 100;
 // // students = students + 50;
@@ -32,7 +32,7 @@
 // const message = `${companyName} has ${totalBots} bots in stock`;
 // console.log(message); // 'Cyberdyne Systems has 200 bots in stock'
 
-// ===========
+// ============================================
 // let weight = '88,3';
 // let height = '1.75';
 
@@ -164,18 +164,111 @@
 // Если оба значения больше 100 то вывести большее из них
 // В противном случае вывести сумму числа b и 512
 
-const a = 220;
-const b = 180;
+// const a = 120;
+// const b = 18;
 
-if (a > 100 && b > 100) {
-  const res = a > b ? a : b;
+// if (a > 100 && b > 100) {
+//   //вар 1
+//   //   const res = a > b ? a : b;
+//   //вар 2
+//   const res = Math.max(a, b);
+//   //вар 3
+//   //   let res;
+//   //   if (a > b) {
+//   //     res = a;
+//   //   } else {
+//   //     res = b;
+//   //   }
 
-  //   let res;
-  //   if (a > b) {
-  //     res = a;
-  //   } else {
-  //     res = b;
-  //   }
+//   console.log(res);
+// } else {
+//   console.log(b + 512);
+// }
 
-  console.log(res);
+//=====================================================
+// Форматирование ссылки (endsWith)
+// Напиши скрипт, проверяющий заканчивается ли значение переменной link символом /
+// Если нет - добавь в конец значения link этот символ. Используй if...else
+
+// let link = 'https://my-site.com/about';
+
+// // вар 1
+// if (!link.endsWith('/')) link += '/';
+
+// // вар 2
+// // link += !link.endsWith('/') ? '/' : '';
+
+// console.log(link);
+
+//=====================================================
+// Форматирование ссылки (endsWith)
+// Напиши скрипт, проверяющий заканчивается ли значение переменной link символом /
+// Если нет - добавь в конец значения link этот символ, но только в том случае,
+// если в link есть подстрока "my-site". Используй if...else
+
+// let link = 'https://my-site.com/about';
+
+// // вар 1
+// if (!link.endsWith('/') && link.includes('my-site')) link += '/';
+
+// // вар 2
+// // link += !link.endsWith('/') ? '/' : '';
+
+// console.log(link);
+
+//====================================================
+// Форматирование ссылки
+// Выполни рефакторинг кода задачи используя тернарный оператор
+
+// let link = 'https://m-site.com/about';
+
+// link += link.includes('my-site') && !link.endsWith('/') ? '/' : '';
+
+// console.log(link);
+
+//====================================================
+// if...else и логические операторы
+// Напиши скрипт который будет выводить строку в зависимости от значения пременной hours
+// Ели значение hours:
+// hours < 17 'Pending'
+// hours >= 17 и <= 24 'Expires'
+// hours > 24 'Overdue'
+
+// const hours = 29;
+// let text;
+
+// if (hours < 17) {
+//   text = 'Pending';
+// } else if (hours >= 17 && hours <= 24) {
+//   text = 'Expires';
+// } else {
+//   text = 'Overdue';
+// }
+
+// console.log(text);
+
+//====================================================
+//Напиши дедлайн сдачи проекта. Используй if...else
+// 0 дней "Сегодня"
+// 1 день "Завтра"
+// 2 дня "Послезавтра"
+// 3+ дня "Дата в будущем"
+
+const dayUntilDeadLine = 0;
+let text;
+
+switch (dayUntilDeadLine) {
+  case 0:
+    text = 'Сегодня';
+    break;
+  case 1:
+    text = 'Завтра';
+    break;
+  case 2:
+    text = 'Послезавтра';
+    break;
+  default:
+    text = 'Дата в будущем';
 }
+
+console.log(text);
