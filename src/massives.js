@@ -477,3 +477,23 @@
 
 // // ✅ Работает вызов после объявления
 // multiply(4, 5, 6);
+
+//========================================================
+//========================================================
+
+// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
+// console.table(friends);
+// const lastIndex = friends.length - 1;
+
+// // Если нужно получить доступ к индексу или изменить значение, то:
+// // for (let i = 0; i <= lastIndex; i += 1) {
+// //   friends[i] += '-1';
+// //   //   console.log(friends[i]);
+// // }
+
+// // Если не нужен индекс и значение, то:
+// for (const friend of friends) {
+//   console.log(friend);
+// }
+
+// // console.table(friends);
