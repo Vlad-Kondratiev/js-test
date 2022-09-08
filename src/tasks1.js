@@ -300,7 +300,7 @@
 // numbers = [];
 // console.log(numbers);
 
-// =============================================
+// Example 1 =============================================
 // Создай массив genres с элементами 'Jazz' 'Blues'
 // Добавить 'Rock-n-Roll' в конец
 // Вывести в конволь первый элемент массива
@@ -321,7 +321,7 @@
 // genres.unshift('Country', 'Reggy');
 // console.log(genres);
 
-// =============================================
+// Example 2 =============================================
 // Напиши скрипт для вычисления площади прямоугольника со сторонами значения которых хранятся в переменной values в виде строки. Значения гарантированно разделены пробелом
 
 // //Вар 1
@@ -347,7 +347,7 @@
 // console.log(getSquare('8 11'));
 // console.log(getSquare('10 11'));
 
-// =============================================
+// Example 3 =============================================
 // Напиши скрипт для перебора массива fruits циклом for. Для каждого элемента массива выведи в консоль строку в формате
 // - номер_элемента: значение_элемента.
 // - Нумерация элементов должна начинаться с 1.
@@ -358,26 +358,119 @@
 //   console.log(`${i + 1}: ${fruits[i]}`);
 // }
 
-// =============================================
+// Example 4 =============================================
 // Напиши скрипт который выводит в консоль имя и телефонный номер пользователя. В переменных names и phones хранятся строки имен и телефонных номеров, разделенные запятыми. Порядковый номер имен и телефонов в строках указывают на соответствие. Количество имен и телефонов гарантированно одинаковое.
 
-const names = 'Jacob,William,Solomon,Artemis';
-const phones = '89001234567,89001112233,890055566377,890055566300';
+// const names = 'Jacob,William,Solomon,Artemis';
+// const phones = '89001234567,89001112233,890055566377,890055566300';
 
-const namesArr = names.split(',');
-const phonesArr = phones.split(',');
+// const namesArr = names.split(',');
+// const phonesArr = phones.split(',');
 
-console.log(namesArr);
-console.log(phonesArr);
+// console.log(namesArr);
+// console.log(phonesArr);
 
-for (let i = 0; i < namesArr.length; i += 1) {
-  const nameWithEnding = `${namesArr[i]}:`;
+// for (let i = 0; i < namesArr.length; i += 1) {
+//   const nameWithEnding = `${namesArr[i]}:`;
 
-  console.log(`${nameWithEnding.padEnd(10, ' ')} ${phonesArr[i]}`);
-}
+//   console.log(`${nameWithEnding.padEnd(10, ' ')} ${phonesArr[i]}`);
+// }
 
-// =============================================
+// Example 5 =============================================
 // Напиши скрипт который выводит в консоль все слова строки кроме первого и последнего. Результирующая строка не должна начинаться или заканчиваться пробельным символом. Скрипт должен работать для любой строки.
 
-const string = 'Welcome to the future';
-const strArr = string.split(' ');
+// const string = 'Welcome to the future';
+// const strArr = string.split(' ');
+
+// strArr.shift();
+// strArr.pop();
+
+// console.log(strArr.join(' '));
+
+// Example 6 =============================================
+// Напиши скрипт который «разворачивает» строку (обратный порядок букв) и выводит ее в консоль.
+
+// const string = 'Welcome to the future';
+// const letters = string.split('');
+// const reversedStr = [];
+
+// // Вар 1
+// for (let i = letters.length - 1; i >= 0; i -= 1) {
+//   reversedStr.push(letters[i]);
+// }
+// console.log(reversedStr.join(''));
+
+// // Вар 2
+// console.log(string.split('').reverse().join(''));
+
+// Example 7 =============================================
+//Напиши скрипт сортировки массива строк в алфавитном порядке по первой букве элемента.
+
+const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+// langs.sort(); // сортировка по первому, а затем по второму символу
+
+// // Сортировка только по первому символу
+// for (let x = 0; x < langs.length; x += 1) {
+//   for (let y = x + 1; y < langs.length; y += 1) {
+//     const lang1 = langs[x];
+//     const lang2 = langs[y];
+
+//     if (lang1[0] > lang2[0]) {
+//       langs[y] = lang1;
+//       langs[x] = lang2;
+//     }
+//   }
+// }
+
+// console.log(langs);
+
+// // swap пример
+// let a = 1;
+// let b = 2;
+
+// [b, a] = [a, b];
+
+// console.log('a: ', a);
+// console.log('b: ', b);
+
+// Example 8 =============================================
+//Напиши скрипт поиска самого маленького числа в массиве. Код должен работать для любого массива чисел. Используй цикл для решения задачи.
+
+const numbers = [2, 17, 94, 1, 23, 37];
+// let min = numbers[0];
+// let max = numbers[0];
+
+// for (const number of numbers) {
+//   if (number < min) {
+//     min = number;
+//   }
+//   if (number > max) {
+//     max = number;
+//   }
+// }
+
+// console.log(min); // 1
+// console.log(max); // 94
+
+// ======== spred ==========
+// определение макс и мин числа в массиве
+console.log(...numbers);
+console.log(Math.min(...numbers));
+console.log(Math.max(...numbers));
+
+// создание копии массива
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1];
+
+arr1.push(4);
+console.log(arr1);
+console.log(arr2);
+
+// ======== rest ==========
+function sum(a, b, ...rest) {
+  console.log(rest);
+
+  return a + b;
+}
+
+console.log(sum(1, 1));
