@@ -921,9 +921,38 @@ isValidPassword('jqueryismyjam');
 
 // ================== 31 ==================
 
+// const courseTopic = 'JavaScript essentials';
+
+// const courseTopicLength = courseTopic.length;
+// const firstElement = courseTopic[0];
+// const lastElement = courseTopic[courseTopic.length - 1];
+
 // ================== 32 ==================
 
+// function getSubstring(string, length) {
+//   const substring = string.slice(string, length);
+
+//   return substring;
+// }
+
+// getSubstring('Hello world', 3);
+// getSubstring('Hello world', 6);
+// getSubstring('Hello world', 8);
+// getSubstring('Hello world', 11);
+// getSubstring('Hello world', 0);
+
 // ================== 33 ==================
+
+function formatMessage(message, maxLength) {
+  return message.length <= maxLength ? message : message.slice(0, maxLength) + '...';
+}
+
+formatMessage('Curabitur ligula sapien', 16);
+formatMessage('Curabitur ligula sapien', 23);
+formatMessage('Vestibulum facilisis purus nec', 20);
+formatMessage('Vestibulum facilisis purus nec', 30);
+formatMessage('Nunc sed turpis a felis in nunc fringilla', 15);
+formatMessage('Nunc sed turpis a felis in nunc fringilla', 41);
 
 // ================== 34 ==================
 
