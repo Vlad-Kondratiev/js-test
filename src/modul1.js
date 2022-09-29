@@ -215,9 +215,8 @@
 //   if (totalPrice > customerCredits) {
 //     message = 'Insufficient funds!';
 //   } else {
-//     message = `You ordered ${orderedQuantity} droids, you have ${
-//       customerCredits - totalPrice
-//     } credits left`;
+// let creditsLeft = customerCredits - totalPrice;
+//     message = `You ordered ${orderedQuantity} droids, you have ${creditsLeft} credits left`;
 //   }
 //   return message;
 // }
@@ -534,7 +533,7 @@
 
 // function checkForName(fullName, name) {
 //   const result = fullName.includes('Egor Kolbasov Vadim Nekrasov');
-//   name.includes('Egor Vadim'); // Change this line
+//   name.includes('Egor Vadim');
 //   return result;
 // }
 // checkForName('Egor Kolbasov', 'Egor');
@@ -547,13 +546,13 @@
 
 // ================== 36 ==================
 
-// function checkForSpam(message) {
-//   let result;
-//   message = message.toLowerCase();
-//   result = message.includes('sale') || message.includes('spam');
+//function checkForSpam(message) {
+//     let result;
+//     message = message.toLowerCase();
+//     result = message.includes('sale') || message.includes('spam');
 
-//   return result;
-// }
+//     return result;
+//   }
 // checkForSpam('JavaScript weekly newsletter');
 // checkForSpam('JavaScript weekly newsletter');
 // checkForSpam('Get best sale offers now!');
