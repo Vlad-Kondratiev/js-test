@@ -221,42 +221,61 @@
 
 // ================ 21 ==================
 
-function findLongestWord(string) {
-  let strngSplit = string.split(' ');
+// function findLongestWord(string) {
+//   let strngSplit = string.split(' ');
 
-  console.log(strngSplit);
+//   console.log(strngSplit);
 
-  let longestWord = '';
-  console.log(longestWord);
+//   let longestWord = '';
+//   console.log(longestWord);
 
-  for (let i = 0; i < strngSplit.length; i += 1) {
-    if (strngSplit[i].length > longestWord.length) {
-      longestWord = strngSplit[i];
-      console.log(longestWord);
-    }
-  }
+//   for (let i = 0; i < strngSplit.length; i += 1) {
+//     if (strngSplit[i].length > longestWord.length) {
+//       longestWord = strngSplit[i];
+//       console.log(longestWord);
+//     }
+//   }
 
-  return longestWord;
-}
+//   return longestWord;
+// }
 
-findLongestWord('The quick brown fox jumped over the lazy dog');
-findLongestWord('Google do a roll');
-findLongestWord('May the force be with you');
+// findLongestWord('The quick brown fox jumped over the lazy dog');
+// findLongestWord('Google do a roll');
+// findLongestWord('May the force be with you');
 
 // ================ 22 ==================
 
-function createArrayOfNumbers(min, max) {
-  const numbers = [];
-  // Change code below this line
-  for (let i = min; i <= max; i += 1) numbers.push(i);
-  // Change code above this line
-  return numbers;
-}
-createArrayOfNumbers(1, 3);
-createArrayOfNumbers(14, 17);
-createArrayOfNumbers(29, 34);
+// function createArrayOfNumbers(min, max) {
+//   const numbers = [];
+
+//   for (let i = min; i <= max; i += 1) {
+//     numbers.push(i);
+//   }
+//   return numbers;
+// }
+// createArrayOfNumbers(1, 3);
+// createArrayOfNumbers(14, 17);
+// createArrayOfNumbers(29, 34);
 
 // ================ 23 ==================
+
+// function filterArray(numbers, value) {
+//   const newArray = [];
+
+//   for (let i = 0; numbers.length > i; i += 1) {
+//     if (numbers[i] > value) {
+//       newArray.push(numbers[i]);
+//     }
+//   }
+//   return newArray;
+// }
+
+// filterArray([1, 2, 3, 4, 5], 3);
+// filterArray([1, 2, 3, 4, 5], 4);
+// filterArray([1, 2, 3, 4, 5], 5);
+// filterArray([12, 24, 8, 41, 76], 38);
+// filterArray([12, 24, 8, 41, 76], 20);
+
 // ================ 24 ==================
 
 // function checkFruit(fruit) {
@@ -271,3 +290,126 @@ createArrayOfNumbers(29, 34);
 // checkFruit('pear');
 // checkFruit('Pear');
 // checkFruit('apple');
+
+// ================ 25 ==================
+
+// function getCommonElements(array1, array2) {
+//   const newArray = [];
+
+//   for (let i = 0; i < array1.length; i += 1) {
+//     if (array2.includes(array1[i])) {
+//       newArray.push(array1[i]);
+//     }
+//   }
+//   return newArray;
+// }
+
+// getCommonElements([1, 2, 3], [2, 4]);
+// getCommonElements([1, 2, 3], [2, 1, 17, 19]);
+// getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]);
+// getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]);
+// getCommonElements([1, 2, 3], [10, 20, 30]);
+
+// ================ 26 ==================
+
+// function calculateTotalPrice(order) {
+//   let total = 0;
+
+//   for (const volie of order) {
+//   // for (let i = 0; i < order.length; i += 1) {
+//     total += volie;
+//   }
+
+//   return total;
+// }
+
+// calculateTotalPrice([12, 85, 37, 4]);
+// calculateTotalPrice([164, 48, 291]);
+// calculateTotalPrice([412, 371, 94, 63, 176]);
+// calculateTotalPrice([]);
+
+// ================ 27 ==================
+
+// const a = 3 % 1;
+// const b = 4 % 3;
+// const c = 11 % 8;
+// const d = 12 % 7;
+// const e = 8 % 6;
+
+// ================ 28 ==================
+
+// function getEvenNumbers(start, end) {
+//   const filteredNumbers = [];
+
+//   for (let i = start; i <= end; i += 1) {
+//     if (i % 2 === 0) {
+//       filteredNumbers.push(i);
+//     }
+//   }
+//   return filteredNumbers;
+// }
+
+// getEvenNumbers(2, 5);
+// getEvenNumbers(3, 11);
+// getEvenNumbers(6, 12);
+// getEvenNumbers(8, 8);
+// getEvenNumbers(7, 7);
+
+// ================ 29 ==================
+
+// const start = 6;
+// const end = 27;
+// let number;
+
+// for (let i = start; i < end; i += 1) {
+//   if (i % 5 === 0) {
+//     number = i;
+//     break;
+//   }
+// }
+
+// ================ 30 ==================
+
+// const start = 6;
+// const end = 27;
+// let number;
+
+// for (let i = start; i < end; i += 1) {
+//   if (i % 5 === 0) {
+//     number = i;
+//     break;
+//   }
+// }
+
+// ================ 31 ==================
+
+// function findNumber(start, end, divisor) {
+//   let number;
+
+//   for (let i = start; i < end; i += 1) {
+//     if (i % divisor === 0) {
+//       number = i;
+//       return number;
+//     }
+//   }
+// }
+
+// ================ 32 ==================
+
+// function includes(array, value) {
+//   for (const item of array) {
+//     if (item === value) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// includes([1, 2, 3, 4, 5], 3);
+// includes([1, 2, 3, 4, 5], 17);
+// includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Jupiter');
+// includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Uranus');
+// includes(['apple', 'plum', 'pear', 'orange'], 'plum');
+// includes(['apple', 'plum', 'pear', 'orange'], 'kiwi');
+
+// ========================================
