@@ -91,6 +91,39 @@
 // ==== Массивы и функции это объекты =====
 // ========================================
 
-const a = [1, 2, 3];
+// const a = [1, 2, 3];
 
-console.log(a);
+// a.hello = ';)';
+
+// console.log(a);
+
+// const fn = function () {
+//   console.log('hello');
+// };
+
+// fn.hello = ';)';
+
+// console.dir(fn);
+
+// ============ Методы объекта ============
+// ========================================
+
+const playlist = {
+  name: 'My Playlist',
+  rating: 5,
+  tracks: ['track-1', 'track-2', 'track-3', 'track-4'],
+  trackCount: 5,
+
+  //   // олдскульная запись:
+  //   getName: function () {
+  //     console.log('Ага, это getName');
+  //   },
+  // современный синтаксис:
+  getName() {
+    console.log('Ага, это getName');
+  },
+};
+
+console.log(playlist);
+
+playlist.getName();
