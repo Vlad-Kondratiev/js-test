@@ -108,7 +108,6 @@
 // ============ Методы объекта ============
 // ========================================
 
-const playlist = {
 // const playlist = {
 //   name: 'My Playlist',
 //   rating: 5,
@@ -371,42 +370,42 @@ const playlist = {
 
 // =============================================
 
-const friends = [
-  { name: 'Mango', online: false },
-  { name: 'Kiwi', online: true },
-  { name: 'Poly', online: true },
-  { name: 'Ajax', online: false },
-];
+// const friends = [
+//   { name: 'Mango', online: false },
+//   { name: 'Kiwi', online: true },
+//   { name: 'Poly', online: true },
+//   { name: 'Ajax', online: false },
+// ];
 
-console.table(friends);
+// console.table(friends);
 
-const getFriendsByOnlineStatus = function (allFriends) {
-  const FriendsStatus = {
-    online: [],
-    offline: [],
-  };
+// const getFriendsByOnlineStatus = function (allFriends) {
+//   const FriendsStatus = {
+//     online: [],
+//     offline: [],
+//   };
 
-  for (const friend of allFriends) {
-    console.log(friend);
-    if (friend.online) {
-      FriendsStatus.online.push(friend);
-      continue;
-    }
-    FriendsStatus.offline.push(friend);
-  }
+//   for (const friend of allFriends) {
+//     console.log(friend);
+//     if (friend.online) {
+//       FriendsStatus.online.push(friend);
+//       continue;
+//     }
+//     FriendsStatus.offline.push(friend);
+//   }
 
-  return FriendsStatus;
-};
+//   return FriendsStatus;
+// };
 
-console.log(getFriendsByOnlineStatus(friends));
+// console.log(getFriendsByOnlineStatus(friends));
 
 // ================= Узнать кол-во свойств в объекте =================
 
-const x = {
-  a: 1,
-  b: 2,
-  c: 50,
-  d: 100,
-};
+// const x = {
+//   a: 1,
+//   b: 2,
+//   c: 50,
+//   d: 100,
+// };
 
-console.log(Object.keys(x).length);
+// console.log(Object.keys(x).length);
