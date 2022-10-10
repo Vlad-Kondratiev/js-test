@@ -409,3 +409,107 @@
 // };
 
 // console.log(Object.keys(x).length);
+
+// ================== ОПЕРАЦИЯ spread (распыление) ====================
+
+// const numbers = [1, 2, 3].concat([4, 5, 6, 7], [8, 9, 10]);
+// console.log(numbers);
+
+// const numbers = [0, 10, 20, ...[1, 2, 3, 777], 4, 5];
+// console.log(numbers);
+
+// const numbers = [...[1, 2, 3], ...[4, 5, 6], ...[7, 8, 9]];
+// console.log(numbers);
+
+// ====== Поиск самой маленькой и самой большой температуры =======
+
+// const temps = [18, 14, 12, 21, 17, 29, 24];
+// console.log(Math.max(...temps));
+
+// // передача по значению (примитивы) ====================
+// const a = [1, 2, 3]; // array а = [1, 2, 3]
+// const b = [...a]; // создается копия массива a - array b = [1, 2, 3]
+
+// console.log(a);
+// console.log(b);
+
+// // если массив включает в себя объекты (сложные типы), то создается ссылки на оригинальный объект
+// const a = [{ x: 1 }, { y: 2 }, { z: 3 }];
+// const b = [...a];
+
+// console.log('a: ', a);
+// console.log('b: ', b);
+
+// console.log(a[0] === b[0]); // равно - потаму что сравниваются ссылки на один и тот же объект
+// console.log(a === b); // не равно - потаму что это разные ячейки памяти
+
+// a[0].x = 1000;
+
+// console.log('a: ', a);
+// console.log('b: ', b);
+
+// ==== Сшиваем несколько массивов в один с помощью spread ====
+
+// const lastWeekTemps = [1, 2, 3];
+// const currentTemps = [4, 5, 6];
+// const nextWeekTemps = [7, 8, 9];
+
+// const allTemps = [...lastWeekTemps, ...currentTemps, ...nextWeekTemps];
+// console.log(allTemps);
+
+// ==================== Распыление объектов ====================
+
+// const a = { x: 1, d: 'name: Mango', y: 2 };
+// const b = { x: 0, z: 3 };
+
+// // // старий способ:
+// // const c = Object.assign({}, a, b);
+// // // или:
+// // const c = {};
+// // Object.assign( c, a, b);
+
+// // современний варіант:
+// const c = {
+//   ...a,
+//   ...b,
+// };
+
+// console.log(c);
+
+// ==========================
+
+// const defaultSettings = {
+//   theme: 'light',
+//   shoNotifications: true,
+//   hideSidebar: false,
+// };
+
+// const userSettings = {
+//   shoNotifications: false,
+//   hideSidebar: true,
+// };
+
+// const finalSettings = {
+//   ...defaultSettings,
+//   ...userSettings,
+// };
+
+// console.log(finalSettings);
+
+// =================== Деструктеризація об'екта ==================
+
+const playlist = {
+  name: 'My Playlist',
+  rating: 5,
+  tracks: ['track-1', 'track-2', 'track-3', 'track-4'],
+  trackCount: 5,
+};
+
+// // олдскульный вариант:
+// console.log(playlist.name, playlist.rating, playlist.tracks, playlist.trackCount);
+
+// современная запись операции деструктеризации
+
+const { rating, tracks, name, trackCount } = playlist;
+
+console.log(name, rating, tracks, trackCount);
