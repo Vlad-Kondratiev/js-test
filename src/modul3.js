@@ -498,18 +498,245 @@
 
 // =================== Деструктеризація об'екта ==================
 
-const playlist = {
-  name: 'My Playlist',
-  rating: 5,
-  tracks: ['track-1', 'track-2', 'track-3', 'track-4'],
-  trackCount: 5,
+// // Простая деструктуризация (плоский объект):
+// const playlist = {
+//   name: 'My Playlist',
+//   rating: 5,
+//   tracks: ['track-1', 'track-2', 'track-3', 'track-4'],
+//   trackCount: 5,
+// };
+
+// // // олдскульный вариант:
+// // console.log(playlist.name, playlist.rating, playlist.tracks, playlist.trackCount);
+
+// // современная запись операции деструктеризации
+
+// const { rating, tracks, name, trackCount: numberOfTracks, autor = 'user' } = playlist;
+
+// console.log(name, rating, tracks, numberOfTracks, autor);
+
+// Глубокая деструкторизация:
+
+// const profile = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: 'Ocho Rios. Jamaica',
+//     avatar: 'https://s3.amazonaws.com/ulfaces/',
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     },
+// };
+
+// const { name, tag, location, avatar, 
+//     stats: {
+//     followers: myFolowers = 5, 
+//     views, 
+//     likes,
+//     },
+// } = profile;
+
+// console.log(name, tag, location, avatar, myFolowers, views, likes);
+
+// ==========================
+
+// const rgb = [255, 100, 80];
+
+// const [red, blue, green] = rgb;
+
+// console.log(red, blue, green);
+
+//  ==========================
+
+// const authors = {
+//     kiwi: 4,
+//     poly: 7,
+//     ajax: 9,
+//     mango: 6,
+// };
+
+// const ratings = Object.values(authors);
+
+// // // var1
+// // console.log(Math.max(...ratings));
+
+// // const keys = Object.keys(authors);
+
+// // for (const key of keys) {
+// //     console.log(key);
+// //     console.log(authors[key]);
+// // }
+
+// // var2
+// const entries = Object.entries(authors);
+
+// console.log(entries);
+
+// // уровень 3
+// for (const [name, rating] of entries) {
+//     // // уровень 2
+//     // const [name, rating] = entry;
+
+//     // // уровень 1
+//     // const name = entry[0];
+//     // const rating = entry[1];
+
+//     console.log(name, rating);
+// }
+
+// ================ Операция rest (сбор) ===================
+
+// const profile = {
+//         name: 'Jacques Gluke',
+//         tag: 'jgluke',
+//         location: 'Ocho Rios. Jamaica',
+//         avatar: 'https://s3.amazonaws.com/ulfaces/',
+//         stats: {
+//             followers: 5603,
+//             views: 4827,
+//             likes: 1308,
+//         },
+//     };
+
+//     const { name, tag, location, ...restProps } = profile;
+
+//     console.log(name, tag, location);
+//     console.log(restProps);
+//     console.log(profile);
+
+// ================ Паттерн Объект настроек ===================
+
+// // ==== деструктуризация в теле функции ====
+// const showProfileInfo = function (userProfile) {
+//     console.log(userProfile);
+
+//     const {
+//         name,
+//         tag,
+//         location,
+//         avatar,
+//         stats: { followers, views, likes },
+//     } = userProfile;
+
+//     console.log(name, tag, location, avatar, followers, views, likes);
+// };
+
+// // ==== Второй вариант записи (деструктуризация в подписи) ====
+// const showProfileInfo = function ({
+//     name,
+//     tag,
+//     location,
+//     avatar,
+//     stats: { followers, views, likes },
+// }) {
+//     console.log(name, tag, location, avatar, followers, views, likes);
+// };
+
+// const profile = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: 'Ocho Rios. Jamaica',
+//     avatar: 'https://s3.amazonaws.com/ulfaces/',
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//         },
+// };
+
+// showProfileInfo(profile);
+
+// ============ Корзина товаров ===============
+
+const cart = {
+    items: [],
+    getItems() {
+        return this.items;
+    },
+    add(product) {
+        console.table(this.items);
+
+        for (const item of this.items) { 
+
+            if (item.name === product.name) {
+                console.log('Такой продукт уже есть', product.name);
+                item.quantity += 1;
+                return;
+            }
+        };
+
+        const newProduct = {
+            ...product,
+            quantity: 1,
+        };
+
+        this.items.push(newProduct);
+    },
+    remove(productName) {
+        // for (const item of this.items) {
+        //     console.log(item);
+
+        //     if (productName === item.name) {
+        //         console.log('нашли такой продукт: ', productName);
+        //     }
+        // }
+
+        const { items } = this;
+
+        for (let i = 0; i < items.length; i += 1) {
+            const { name } = items[i];
+
+            if (productName === name) {
+                console.log('нашли такой продукт: ', productName);
+                console.log('индекс: ', i);
+
+                items.splice(i, 1);
+            }
+        }
+    },
+    clear() {
+        this.items = [];
+    },
+    countTotalPrice() {
+        console.log(this.items);
+
+        const { items } = this;
+        let total = 0;
+
+        for (const { price, quantity } of items) {
+            total += price * quantity;
+        }
+
+        return total;
+    },
+    increaseQuantity(productName) {},
+    decreaseQuantity(productName) {},
+}
+
+
+console.log(cart.getItems());
+
+cart.add({ name: 'apple', price: 50 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'lime', price: 70 });
+cart.add({ name: 'strawberry', price: 120 });
+
+console.table(cart.getItems());
+
+console.log('Total: ', cart.countTotalPrice());
+
+cart.remove('apple');
+console.table(cart.getItems());
+
+const getProductTotalPrice = function ({ price, quantity}) {
+    return price * quantity;
 };
 
-// // олдскульный вариант:
-// console.log(playlist.name, playlist.rating, playlist.tracks, playlist.trackCount);
+console.log(getProductTotalPrice(cart.items[0]));
 
-// современная запись операции деструктеризации
+cart.clear();
+console.log(cart.getItems());
 
-const { rating, tracks, name, trackCount } = playlist;
-
-console.log(name, rating, tracks, trackCount);
