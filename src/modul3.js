@@ -649,94 +649,108 @@
 
 // ============ Корзина товаров ===============
 
-const cart = {
-    items: [],
-    getItems() {
-        return this.items;
-    },
-    add(product) {
-        console.table(this.items);
+// const cart = {
+//     items: [],
+//     getItems() {
+//         return this.items;
+//     },
+//     add(product) {
+//         console.table(this.items);
 
-        for (const item of this.items) { 
+//         for (const item of this.items) { 
 
-            if (item.name === product.name) {
-                console.log('Такой продукт уже есть', product.name);
-                item.quantity += 1;
-                return;
-            }
-        };
+//             if (item.name === product.name) {
+//                 console.log('Такой продукт уже есть', product.name);
+//                 item.quantity += 1;
+//                 return;
+//             }
+//         };
 
-        const newProduct = {
-            ...product,
-            quantity: 1,
-        };
+//         const newProduct = {
+//             ...product,
+//             quantity: 1,
+//         };
 
-        this.items.push(newProduct);
-    },
-    remove(productName) {
-        // for (const item of this.items) {
-        //     console.log(item);
+//         this.items.push(newProduct);
+//     },
+//     remove(productName) {
+//         // for (const item of this.items) {
+//         //     console.log(item);
 
-        //     if (productName === item.name) {
-        //         console.log('нашли такой продукт: ', productName);
-        //     }
-        // }
+//         //     if (productName === item.name) {
+//         //         console.log('нашли такой продукт: ', productName);
+//         //     }
+//         // }
 
-        const { items } = this;
+//         const { items } = this;
 
-        for (let i = 0; i < items.length; i += 1) {
-            const { name } = items[i];
+//         for (let i = 0; i < items.length; i += 1) {
+//             const { name } = items[i];
 
-            if (productName === name) {
-                console.log('нашли такой продукт: ', productName);
-                console.log('индекс: ', i);
+//             if (productName === name) {
+//                 console.log('нашли такой продукт: ', productName);
+//                 console.log('индекс: ', i);
 
-                items.splice(i, 1);
-            }
-        }
-    },
-    clear() {
-        this.items = [];
-    },
-    countTotalPrice() {
-        console.log(this.items);
+//                 items.splice(i, 1);
+//             }
+//         }
+//     },
+//     clear() {
+//         this.items = [];
+//     },
+//     countTotalPrice() {
+//         console.log(this.items);
 
-        const { items } = this;
-        let total = 0;
+//         const { items } = this;
+//         let total = 0;
 
-        for (const { price, quantity } of items) {
-            total += price * quantity;
-        }
+//         for (const { price, quantity } of items) {
+//             total += price * quantity;
+//         }
 
-        return total;
-    },
-    increaseQuantity(productName) {},
-    decreaseQuantity(productName) {},
-}
+//         return total;
+//     },
+//     increaseQuantity(productName) {},
+//     decreaseQuantity(productName) {},
+// }
 
 
-console.log(cart.getItems());
+// console.log(cart.getItems());
 
-cart.add({ name: 'apple', price: 50 });
-cart.add({ name: 'lemon', price: 60 });
-cart.add({ name: 'lemon', price: 60 });
-cart.add({ name: 'lemon', price: 60 });
-cart.add({ name: 'lime', price: 70 });
-cart.add({ name: 'strawberry', price: 120 });
+// cart.add({ name: 'apple', price: 50 });
+// cart.add({ name: 'lemon', price: 60 });
+// cart.add({ name: 'lemon', price: 60 });
+// cart.add({ name: 'lemon', price: 60 });
+// cart.add({ name: 'lime', price: 70 });
+// cart.add({ name: 'strawberry', price: 120 });
 
-console.table(cart.getItems());
+// console.table(cart.getItems());
 
-console.log('Total: ', cart.countTotalPrice());
+// console.log('Total: ', cart.countTotalPrice());
 
-cart.remove('apple');
-console.table(cart.getItems());
+// cart.remove('apple');
+// console.table(cart.getItems());
 
-const getProductTotalPrice = function ({ price, quantity}) {
-    return price * quantity;
-};
+// const getProductTotalPrice = function ({ price, quantity}) {
+//     return price * quantity;
+// };
 
-console.log(getProductTotalPrice(cart.items[0]));
+// console.log(getProductTotalPrice(cart.items[0]));
 
-cart.clear();
-console.log(cart.getItems());
+// cart.clear();
+// console.log(cart.getItems());
+
+// ============= hasOwnProperty ====================
+
+// const animal = {
+//     legs: 4,
+// };
+
+// const dog = Object.create(animal);
+// dog.name = 'Mango';
+// dog.legs = 5;
+
+// console.log(dog);
+// console.log(dog.legs);
+// console.log(dog.hasOwnProperty('legs'));
 
