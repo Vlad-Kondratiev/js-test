@@ -647,18 +647,19 @@
 
 // showProfileInfo(profile);
 
-// ============ Корзина товаров ===============
+
+// ================= Корзина товаров ===================
 
 // const cart = {
 //     items: [],
 //     getItems() {
 //         return this.items;
 //     },
+
 //     add(product) {
 //         console.table(this.items);
 
 //         for (const item of this.items) { 
-
 //             if (item.name === product.name) {
 //                 console.log('Такой продукт уже есть', product.name);
 //                 item.quantity += 1;
@@ -673,6 +674,7 @@
 
 //         this.items.push(newProduct);
 //     },
+
 //     remove(productName) {
 //         // for (const item of this.items) {
 //         //     console.log(item);
@@ -695,9 +697,11 @@
 //             }
 //         }
 //     },
+
 //     clear() {
 //         this.items = [];
 //     },
+
 //     countTotalPrice() {
 //         console.log(this.items);
 
@@ -710,8 +714,24 @@
 
 //         return total;
 //     },
-//     increaseQuantity(productName) {},
-//     decreaseQuantity(productName) {},
+
+//     increaseQuantity(productName) {
+//         for (const item of this.items) { 
+//             if (item.name === productName) {
+//                 item.quantity += 1;
+//                 return;
+//             }
+//         };
+//     },
+
+//     decreaseQuantity(productName) {
+//         for (const item of this.items) { 
+//             if (item.name === productName) {
+//                 item.quantity -= 1;
+//                 return;
+//             }
+//         };
+//     },
 // }
 
 
@@ -725,13 +745,17 @@
 // cart.add({ name: 'strawberry', price: 120 });
 
 // console.table(cart.getItems());
+// cart.increaseQuantity('lemon');
+// cart.decreaseQuantity('lime');
+
+// console.table(cart.getItems());
 
 // console.log('Total: ', cart.countTotalPrice());
 
 // cart.remove('apple');
 // console.table(cart.getItems());
 
-// const getProductTotalPrice = function ({ price, quantity}) {
+// const getProductTotalPrice = function ({ price, quantity }) {
 //     return price * quantity;
 // };
 
@@ -739,6 +763,8 @@
 
 // cart.clear();
 // console.log(cart.getItems());
+
+
 
 // ============= hasOwnProperty ====================
 
