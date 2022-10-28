@@ -1033,20 +1033,107 @@ function add(...args) {
 
 //========================== 33 ==========================
 
-function findMatches(numbers, ...args) {
-    const matches = []; // Don't change this line
-  for (const number of numbers) {
-    if(args.includes(number)) {
-        matches.push(number);   
-    } 
-  }
-    return matches;
-  }
+// function findMatches(numbers, ...args) {
+//     const matches = []; 
+//   for (const number of numbers) {
+//     if(args.includes(number)) {
+//         matches.push(number);   
+//     } 
+//   }
+//     return matches;
+//   }
   
-  findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7);
-  findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2);
-  findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41);
-  findMatches([63, 11, 8, 29], 4, 7, 16);
+//   findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7);
+//   findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2);
+//   findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41);
+//   findMatches([63, 11, 8, 29], 4, 7, 16);
 
 //========================== 34 ===========================  
 
+// const bookShelf = {
+
+//   books: ["The last kingdom", "The guardian of dreams"],
+//   getBooks() {
+//     return "Returning all books";
+//   },
+//   addBook(bookName) {
+//     return `Adding book ${bookName}`;
+//   },
+//   removeBook(bookName){
+//     return `Deleting book ${bookName}`;
+//   },
+//   updateBook(oldName, newName){
+//     return `Updating book ${oldName} to ${newName}`;
+//   },
+
+// };
+// bookShelf.getBooks();
+// bookShelf.addBook("Haze");
+// bookShelf.removeBook("Red sunset");
+// bookShelf.updateBook("Sands of dune", "Dune");
+
+//======================= 35 ======================
+
+// const bookShelf= {
+//   books: ["The last kingdom", "Haze", "The guardian of dreams"],
+//   updateBook(oldName, newName) {
+
+//     // indexOf() ищет в массиве указанный элемент и возвращает его позицию:
+//     const bookIndex = this.books.indexOf(oldName); 
+//     //this.books.splice(bookIndex, 1, newName);
+//     this.books[bookIndex] = newName;
+//   },
+// };
+// bookShelf.updateBook("Haze", "Dungeon chronicles");
+// bookShelf.books[1]="Haze";
+// //bookShelf.updateBook("The last kingdom", "Dune");
+
+//======================= 36 =======================
+
+// const atTheOldToad = {
+
+// potions: [],
+
+// };
+
+//======================= 37 ======================
+
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+
+//   getPotions(){
+//     return this.potions;
+//   }
+// };
+
+//======================= 38 =======================
+
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+//   addPotion(potionName) {
+//     this.potions.push(potionName);
+//   },
+// };
+
+//======================== 39 ========================
+
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+//   removePotion(potionName) {
+//     // находим индекс переданного значения:
+//     let i = this.potions.indexOf(potionName);
+//     // удалили этот элемент из массива: 
+//     this.potions.splice(i, 1); 
+//   },
+// };
+
+//======================= 40 ======================
+
+const atTheOldToad = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  updatePotionName(oldName, newName) { 
+    const potionIndex = this.potions.indexOf(oldName);
+    //this.books.splice(bookIndex, 1, newName);
+    this.potions[potionIndex] = newName;
+  },  
+};
