@@ -956,13 +956,13 @@
 
 //======================== 28 =============================
 
-const firstGroupScores = [64, 42, 93];
-const secondGroupScores = [89, 14, 51, 26];
-const thirdGroupScores = [29, 47, 18, 97, 81];
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
 
-const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
-const bestScore = (Math.max(...allScores));
-const worstScore = (Math.min(...allScores));
+// const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+// const bestScore = (Math.max(...allScores));
+// const worstScore = (Math.min(...allScores));
 
 //======================== 29 ===========================
 
@@ -1001,18 +1001,18 @@ const worstScore = (Math.min(...allScores));
 
 //========================= 31 ===========================
 
-function add(...args) {
-    let total = 0;
-    for (const arg of args) {
-     total += arg;
-    }    
-    return total;
-  }
+// function add(...args) {
+//     let total = 0;
+//     for (const arg of args) {
+//      total += arg;
+//     }    
+//     return total;
+//   }
 
-  add(15, 27);
-  add(12, 4, 11, 48);
-  add(32, 6, 13, 19, 8);
-  add(74, 11, 62, 46, 12, 36);
+//   add(15, 27);
+//   add(12, 4, 11, 48);
+//   add(32, 6, 13, 19, 8);
+//   add(74, 11, 62, 46, 12, 36);
 
 //========================= 32 ==========================
 
@@ -1129,11 +1129,53 @@ function add(...args) {
 
 //======================= 40 ======================
 
-const atTheOldToad = {
-  potions: ["Speed potion", "Dragon breath", "Stone skin"],
-  updatePotionName(oldName, newName) { 
-    const potionIndex = this.potions.indexOf(oldName);
-    //this.books.splice(bookIndex, 1, newName);
-    this.potions[potionIndex] = newName;
-  },  
-};
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+//   updatePotionName(oldName, newName) { 
+//     const potionIndex = this.potions.indexOf(oldName);
+//     this.potions[potionIndex] = newName;
+//   },  
+// };
+
+//====================== 41 ========================
+
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Dragon breath", price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+  
+//   addPotion(newPotion) {
+//     for (const item of this.potions)
+//       if (item.name === newPotion.name)    
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//     this.potions.push(newPotion);
+//   },
+
+  
+//   removePotion(potionName) {
+//     for (let i = 0; i < this.potions.length; i += 1)
+//       if (this.potions[i].name === potionName) {
+//         this.potions.splice(i, 1);
+//         return;
+//       }
+//      return `Potion ${potionName} is not in inventory!`;
+//   },  
+
+//   updatePotionName(oldName, newName) {
+//     for (let i = 0; i < this.potions.length; i += 1)
+//       if (this.potions[i].name === oldName) {
+//         this.potions[i].name = newName;
+//         return;
+//     }  
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+
+//=========================================================
