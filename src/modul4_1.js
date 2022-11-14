@@ -954,14 +954,14 @@
 // );
 // console.log(totalAmount);
 
-// Збираємо теги з твітов:
-const tweets = [
-    { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-    { id: '001', likes: 2, tags: ['html', 'css'] },
-    { id: '002', likes: 17, tags: ['css', 'react'] },
-    { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
-    { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
-];
+// // Збираємо теги з твітов:
+// const tweets = [
+//     { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//     { id: '001', likes: 2, tags: ['html', 'css'] },
+//     { id: '002', likes: 17, tags: ['css', 'react'] },
+//     { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
+//     { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
+// ];
 
 // const allTags = tweets.reduce((acc, tweet) => {
 //     // // вар 1
@@ -972,11 +972,123 @@ const tweets = [
 //     return [...acc, ...tweet.tags];
 // }, []);
 
-// Запис в одну строку:
-const allTags = tweets.reduce((tags, tweet) => [...tags, ...tweet.tags], []);
+// // Запис в одну строку:
+// const allTags = tweets.reduce((tags, tweet) => [...tags, ...tweet.tags], []);
 
-console.log(allTags);
+// console.log(allTags);
 
 // Ведемо статистику тегів
-const tagsStats = allTags.reduce((acc, tag));
-console.log(tagsStats);
+// const tagsStats = allTags.reduce((acc, tag) => {
+//     console.log(acc);
+
+//     if (acc[tag]) {
+//         acc[tag] += 1;
+
+//         return acc;
+//     }
+
+//     acc[tag] = 1;
+
+//     return acc;
+// }, {});
+
+// console.log(tagsStats);
+// =============
+// const tagsStats = allTags.reduce((acc, tag) => {
+// //     if (acc[tag]) {
+// //         return {
+// //             ...acc,
+// //             [tag]: acc.tag + 1
+// //         };
+// //     }
+        
+// //     return {
+// //         ...acc,
+// //         [tag]: 1,
+// //     };
+// // }, {});
+
+// // Все це можна записати за допомогою тернарника:
+//     return {
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     };
+// }, {}); 
+// console.log(tagsStats); 
+// ================
+// // спрощуємо запис:
+// const tagsStats = allTags.reduce(
+//     (acc, tag) => ({
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     }),
+//     {},
+// );
+
+// console.log(tagsStats);
+
+//================= sort ====================
+// Array.prototipe.sort(callback(currentEl, nextEl){})
+// - Сортує та ЗМІНЮЄ оригінальний массив
+// - по замовчуванню:
+//............ - сортує по збшльшенню
+//............ - призводе єлементи до рядку та сортує по [Unicode](httpc://unicode-table.com/en/)
+
+// const numbers = [1, 9, 6, 2, 3];
+// // numbers.sort();
+// console.log('numbers: ', numbers);
+
+// const letters = ['b', 'B', 'a', 'a'];
+// // letters.sort();
+// // console.log('letters: ', letters);
+
+// numbers.sort((currentEl, nextEl) => {
+//     return currentEl - nextEl;
+// });
+
+// console.log(numbers);
+
+// // зазвичай робиться копія ориг массиву
+// const copy = [...numbers];
+// copy.sort();
+// console.log('copy: ', copy);
+// console.log('numbers: ', numbers);
+
+// // або
+// const descSortedNumbers = [...numbers].sort((a, b) => b - a);
+// const askSortedNumbers = [...numbers].sort((a, b) => a - b);
+// console.log('descSortedNumberss: ', descSortedNumbers);
+// console.log('askSortedNumbers: ', askSortedNumbers);
+// console.log('numbers: ', numbers);
+
+// Також можна отримавши одін з результатів перевернути його за допомогою .reverse()
+// console.log([1, 2, 3, 4, 5].reverse());
+
+//====== Кастомне сортування складних об'єктів ======
+
+const players = [
+    {id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false},
+    {id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true},
+    {id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true},
+    {id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false},
+    {id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true},
+];
+
+// По часу гри
+const sortedByBestPlayers = [...players].sort(
+    (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
+);
+console.log(sortedByBestPlayers);
+
+const sortedByWorstPlayers = [...players].sort(
+    (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed,
+);
+console.log(sortedByWorstPlayers);
+
+const byName = [...players].sort((a, b) => {
+    console.log(a.name[0]);
+    console.log(b.name[0]);
+    console.log(b.name[0]);
+
+    return a.name[0] - b.name[0]
+})
