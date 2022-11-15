@@ -1066,29 +1066,166 @@
 
 //====== Кастомне сортування складних об'єктів ======
 
-const players = [
-    {id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false},
-    {id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true},
-    {id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true},
-    {id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false},
-    {id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true},
+// const players = [
+//     {id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false},
+//     {id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true},
+//     {id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true},
+//     {id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false},
+//     {id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true},
+// ];
+
+// // По часу гри
+// const sortedByBestPlayers = [...players].sort(
+//     (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
+// );
+// // console.log(sortedByBestPlayers);
+
+// const sortedByWorstPlayers = [...players].sort(
+//     (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed,
+// );
+// console.table(sortedByWorstPlayers);
+
+// const byName = [...players].sort((a, b) => {
+//     console.log(a.name[0]);
+//     console.log(b.name[0]);
+//     console.log(a.name[0] - b.name[0]);
+
+//     return a.name[0] - b.name[0]
+// });
+// console.table(byName);
+
+// console.log('a' > 'b');
+// console.log('b' > 'a');
+
+// const byName = [...players].sort((a, b) => {
+//     const result = a.name[0] > b.name[0];
+
+//     if (result) {
+//         return 1;
+//     }
+
+//     if (!result) {
+//         return -1;
+//     };
+// });
+// console.table(byName);
+
+//============== flat ================
+// // Array.prototipe.flat(depth)
+// // - Розгладжує масив до вказаної глибини
+// // - за замовчуванням глибина 1
+
+// const array = [1, 2, [4, [5]], [6, [7, 8, [9]]]];
+// console.log(array);
+// console.log(array.flat());
+// console.log(array.flat(2));
+// console.log(array.flat(3));
+
+
+//============== flatMap ================
+// Array.prototipe.flatMap(callback)
+
+// const tweets = [
+//     { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//     { id: '001', likes: 2, tags: ['html', 'css'] },
+//     { id: '002', likes: 17, tags: ['css', 'react'] },
+//     { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
+//     { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
+// ];
+
+
+// const tags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+// console.log(tags);
+
+// const tags = tweets.map(t => t.tags).flat();
+// // теж саме але ефективніше:
+// const tags = tweets.flatMap(t => t.tags);
+// console.log(tags);
+
+// const stats = tags. reduce((acc, tag) => {
+//     return {
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     };
+// }, {});
+
+//============ chaining ================
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// const greaterThenTwo = numbers.filter(function (num) {
+//     return num > 2;
+// });
+// // оптимізуємо запис:
+// const greaterThenTwo = numbers.filter(num => num > 2);
+// console.log(greaterThenTwo);
+
+// // const multByThree = greaterThenTwo.map(function (num) {
+// //     return num * 3;
+// // });
+// // оптимізуємо запис:
+// const multByThree = greaterThenTwo.map(num => num * 3);
+// console.log(multByThree);
+
+// // const sorted = multByThree.sort(function (a, b) {
+// //     return a - b;
+// // });
+// // оптимізуємо запис:
+// const sorted = multByThree.sort((a, b) => a - b);
+// console.log(sorted);
+
+// // Збираємо ці три методі у ланцюжок chaining
+// const sorted = numbers
+//     .filter(num => num > 2)
+//     .map(num => num * 3)
+//     .sort((a, b) => a - b);
+
+// console.log(sorted);   
+
+//=====================================
+// Сортуємо тих хто онлайн по рангу
+// спочатку фільтруємо потім сортуємо
+
+// const players = [
+//     { id: 'id-1', tag: 'Mango', isOnline: true, rank: 800 },
+//     { id: 'id-2', tag: 'Poly', isOnline: false, rank: 600 },
+//     { id: 'id-3', tag: 'Ajax', isOnline: true, rank: 100 },
+//     { id: 'id-4', tag: 'Kiwi', isOnline: true, rank: 400 },
+// ];
+
+// const onlineAndSorted = players
+//     .filter(player => player.isOnline)
+//     .sort((playerA, playerB) => playerA.rank - playerB.rank);
+
+// console.table(onlineAndSorted);
+
+//=====================================
+
+const tweets = [
+    { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+    { id: '001', likes: 2, tags: ['html', 'css'] },
+    { id: '002', likes: 17, tags: ['css', 'react'] },
+    { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
+    { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
 ];
 
-// По часу гри
-const sortedByBestPlayers = [...players].sort(
-    (prevPlayer, nextPlayer) => nextPlayer.timePlayed - prevPlayer.timePlayed,
-);
-console.log(sortedByBestPlayers);
+// const tags = tweets.flatMap(t => t.tags);
+// console.log(tags);
 
-const sortedByWorstPlayers = [...players].sort(
-    (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed,
-);
-console.log(sortedByWorstPlayers);
+// const stats = tags. reduce((acc, tag) => {
+//     return {
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     };
+// }, {});
 
-const byName = [...players].sort((a, b) => {
-    console.log(a.name[0]);
-    console.log(b.name[0]);
-    console.log(b.name[0]);
-
-    return a.name[0] - b.name[0]
-})
+const stats = tweets 
+    .flatMap(t => t.tags)
+    .reduce(
+        (acc, tag) => ({
+            ...acc,
+            [tag]: acc[tag] ? acc[tag] + 1 : 1,
+        }),
+        {},
+    );
+console.log(stats);
