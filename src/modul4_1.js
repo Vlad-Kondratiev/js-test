@@ -1201,13 +1201,13 @@
 
 //=====================================
 
-const tweets = [
-    { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-    { id: '001', likes: 2, tags: ['html', 'css'] },
-    { id: '002', likes: 17, tags: ['css', 'react'] },
-    { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
-    { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
-];
+// const tweets = [
+//     { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//     { id: '001', likes: 2, tags: ['html', 'css'] },
+//     { id: '002', likes: 17, tags: ['css', 'react'] },
+//     { id: '003', likes: 8, tags: ['html', 'css', 'nodejs'] },
+//     { id: '004', likes: 0, tags: ['js', 'react', 'nodejs'] },
+// ];
 
 // const tags = tweets.flatMap(t => t.tags);
 // console.log(tags);
@@ -1219,13 +1219,166 @@ const tweets = [
 //     };
 // }, {});
 
-const stats = tweets 
-    .flatMap(t => t.tags)
-    .reduce(
-        (acc, tag) => ({
-            ...acc,
-            [tag]: acc[tag] ? acc[tag] + 1 : 1,
-        }),
-        {},
-    );
-console.log(stats);
+// const stats = tweets 
+//     .flatMap(t => t.tags)
+//     .reduce(
+//         (acc, tag) => ({
+//             ...acc,
+//             [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//         }),
+//         {},
+//     );
+// console.log(stats);
+
+//================================================
+//================= forEach ======================
+// const numbers = [5, 10, 15, 20, 25];
+// console.log(numbers);
+
+// for (const number of numbers) {
+//     console.log(number);
+// }
+    
+// function myFn(number) {
+//     console.log(number);
+// }
+
+// numbers.forEach(function myFn(number) {
+//     console.log(number);
+// }); 
+
+// numbers.forEach(function (number) {
+//     console.log(number);
+// }); 
+
+// const myFn = (number) => {
+//     console.log(number);
+// };
+// numbers.forEach(myFn);
+
+// numbers.forEach((number) => {
+//     console.log(number);
+// });
+
+// const myFn = (number) => console.log(number);
+// numbers.forEach(myFn); 
+
+// numbers.forEach((number) => console.log(number)); 
+
+// numbers.forEach(number => console.log(number)); 
+
+//=============== map =================
+
+// const numbers = [5, 10, 15, 20, 25];
+// console.log(numbers);
+
+// // // x2 -= [10, 20, 30, 40, 50]
+// // const newArr = [];
+
+// // numbers.forEach((number) => {
+// //     newArr.push(number * 2);
+// // });
+// // console.log(newArr);
+
+// // // x + 5 -= [10, 15, 20, 25, 30]
+// // const newArr2 = [];
+
+// // numbers.forEach((number) => {
+// //     newArr2.push(number + 5);
+// // });
+// // console.log(newArr2);
+
+// // // x10 -= [50, 100, 150, 200, 250]
+// // const newArr3 = [];
+
+// // numbers.forEach((number) => {
+// //     newArr3.push(number + 5);
+// // });
+// // console.log(newArr3);
+
+// //====================================
+
+// // const numbers = [5, 10, 15, 20, 25];
+// // console.log(numbers);
+
+// const x2 = (number) => number * 2;
+// const xPlus5 = (number) => number + 5;
+// const x10 = (number) => number * 10;
+
+
+// const map = (arr, callback) => {
+//     const newArr = [];
+
+//     arr.forEach((item) => newArr.push(callback(item)));
+
+//     return newArr;
+// };
+
+// console.log(map(numbers, x2)); // x2 -= [10, 20, 30, 40, 50]
+// console.log(map(numbers, xPlus5)); // x + 5 -= [10, 15, 20, 25, 30]
+// console.log(map(numbers, x10)); // x10 -= [50, 100, 150, 200, 250]
+
+// //=====================================
+
+// console.log(
+//     map(
+//         ['www.google.com', 'www.facebook.com', 'www.amazon.com'],
+//         (url) => `<a href='${url}'>${url}</a>` 
+//         )
+//     );
+
+// // <a href='www.google.com'>www.google.com</a>
+// // <a href='www.facebook.com'>www.facebook.com</a>
+
+//================ find =====================
+
+// const find = (arr, callback) => {
+//     for (const item of arr) {
+//         if (callback(item)) {
+//             return item;
+//         }
+//     }
+// };
+
+// const users = [
+//     { name: 'Bobby', age: 15 },
+//     { name: 'Peter', age: 20 },
+//     { name: 'Chris', age: 25 },
+// ];
+
+// console.log(
+//     find(users, function (item) {
+//         return item.name === 'Chris';
+//     })
+// );
+
+// console.log(find(users, (item) => item.name === 'Bobby'));
+// console.log(find(users, (item) => item.name === 'Peter'));
+// console.log(find(users, (item) => item.age === 25));
+// console.log(find([1, 2, 3, 4, 5], (number) => number > 3));
+// console.log(find([1, 2, 3, 4, 5], (number) => number % 2 === 0));
+
+//============== filter =================
+const filter = (arr, callback) => {
+    const newArr = [];
+
+    arr.forEach((item) => {
+        if (callback(item)) {
+            newArr.push(item);
+        }
+    });
+
+    return newArr;
+};
+
+
+const users = [
+    { name: 'Bobby', age: 15 },
+    { name: 'Peter', age: 20 },
+    { name: 'Chris', age: 25 },
+    { name: 'Brown', age: 55 },
+];
+
+console.log(filter(users, (user) => user.age < 25));
+console.log(filter(users, (user) => user.age > 20));
+console.log(filter(users, (user) => user.name[0] === 'B'));
