@@ -1400,23 +1400,23 @@
 // closuredName(); // Bobby
 
 //=========== closer counter ==================
-function Counter(initialValue = 0) {
-    let x = initialValue;
+// function Counter(initialValue = 0) {
+//     let x = initialValue;
 
-    return function () {
-        console.log((x += 1)); // 1, 2, 3, 4
-    }
-}
+//     return function () {
+//         console.log((x += 1)); // 1, 2, 3, 4
+//     }
+// }
 
-const counter1 = Counter();
-counter1(); // 1
-counter1(); // 2
-counter1(); // 3
+// const counter1 = Counter();
+// counter1(); // 1
+// counter1(); // 2
+// counter1(); // 3
 
-const counter2 = Counter(10);
-counter2(); // 11
-counter2(); // 12
-counter2(); // 13
+// const counter2 = Counter(10);
+// counter2(); // 11
+// counter2(); // 12
+// counter2(); // 13
 
 //============= Example 1 - Коллбек функції ===============
 //Напишіть наступні функції:
@@ -1681,22 +1681,139 @@ counter2(); // 13
 
 // Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
 
-function printContactsInfo({ names, phones }) {
-  const nameList = names.split(',');
-  const phoneList = phones.split(',');
+// function printContactsInfo({ names, phones }) {
+//   const nameList = names.split(',');
+//   const phoneList = phones.split(',');
 //   for (let i = 0; i < nameList.length; i += 1) {
 //     console.log(`${nameList[i]}: ${phoneList[i]}`);
 //   }
 
-//  Рефакторим вар1:
-  nameList.forEach((name, index) => console.log(`${name}: ${phoneList[index]}`));
-//  Рефакторим вар2:  
-  names.forEach((name, index) => console.log(`${nameList[index]}: ${phoneList[index]}`));
-}
+// //  Рефакторим вар1:
+//   nameList.forEach((name, index) => console.log(`${name}: ${phoneList[index]}`));
+// //  Рефакторим вар2:  
+//       nameList.forEach((_, index) => console.log(`${nameList[index]}: ${phoneList[index]}`)
+//       );
+// }
 
-printContactsInfo({
-  names: 'Jacob,William,Solomon,Artemis',
-  phones: '89001234567,89001112233,890055566377,890055566300',
-});
+// printContactsInfo({
+//   names: 'Jacob,William,Solomon,Artemis',
+//   phones: '89001234567,89001112233,890055566377,890055566300',
+// });
+
+//============== Example 9 - Метод forEach ====================
+
+// Виконайте рефакторинг коду за допомогою методу forEach та стрілочні функції.
+
+// function calсulateAverage(...args) {
+//   let total = 0;
+//   // for (let i = 0; i < args.length; i++) {
+//   //   total += args[i];
+//   // }
+//   args.forEach((item) => (total += item));
+//   return total / args.length;
+// }
+
+// console.log(calсulateAverage(1, 2, 3, 4)); // 2.5
+// console.log(calсulateAverage(14, 8, 2)); // 8
+// console.log(calсulateAverage(27, 43, 2, 8, 36)); // 23.2
+
+//======================
+
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+
+//     return allTags;
+//   }, []);
+
+// const tags = getTags(tweets);
+
+// const getTagStats = (acc, tag) => {
+//   if (!acc.hasOwnProperty(tag)) {
+//     acc[tag] = 0;
+//   }
+
+//   acc[tag] += 1;
+
+//   return acc;
+// };
+
+// const countTags = tags => tags.reduce(getTagStats, {});
+
+// const tagCount = countTags(tags);
+// console.log(tagCount);
+
+//================================================
+// Написати функцію котра буде повертати масив моделей авто
+// 
+// 1. Визначити метод
+// 2. перебрати масив з авто
+// 2. Зібрати масив з моделями автою.
+
+
+ const cars = [
+  { make: 'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true },
+  { make: 'Honda', model: 'Accord', type: 'sedan', amount: 2, price: 22455, onSale: true },
+  { make: 'Mazda', model: 'Mazda 6', type: 'sedan', amount: 8, price: 24195, onSale: false },
+  { make: 'Mazda', model: 'CX-9', type: 'suv', amount: 7, price: 31520, onSale: true },
+  { make: 'Toyota', model: '4Runner', type: 'suv', amount: 19, price: 34210, onSale: false },
+  { make: 'Toyota', model: 'Sequoia', type: 'suv', amount: 16, price: 45560, onSale: false },
+  { make: 'Toyota', model: 'Tacoma', type: 'truck', amount: 4, price: 24320, onSale: true },
+  { make: 'Ford', model: 'F-150', type: 'truck', amount: 11, price: 27110, onSale: true },
+  { make: 'Ford', model: 'Fusion', type: 'sedan', amount: 13, price: 22120, onSale: true },
+  { make: 'Ford', model: 'Explorer', type: 'suv', amount: 6, price: 31660, onSale: false }
+];
+
+// const getModels = cars => {
+//   const models = cars.map(car => {
+//     return car.model
+//   })
+
+//   return models
+// }
+// Оптимізуємо у стрілочну функцію:
+const getModels = cars => cars.map(car => car.model);
+
+const allModels = getModels(cars);
+// console.table(allModels);
+
+//==================================================
+
+// Task 2. 
+// Нехай функція `makeCarsWithDiscount` повертає новий масив об'єктів із змінени 
+// значенням властивості `price` залежно від переданої знижки.
+// 1. Перебрати масив з авто
+// 2. Повернути новий масив з оновленою ціною залежно від скидки
+
+// const makeCarsWithDiscount = (cars, discount) => {
+//   const carsWithDiscount = cars.map(car => {
+//     return {
+//       ...car,
+//       price: car.price - (car.price * discount)
+//     }
+//   })
+
+//   return carsWithDiscount;
+// };
+// Оптимізуемо:
+const makeCarsWithDiscount = (cars, discount) => cars.map(car => ({
+  ...car,
+  price: car.price - (car.price * discount) 
+}))
+
+const carsDiscount = makeCarsWithDiscount(cars, 0.2);
+console.table(carsDiscount);
 
 //=====================================================
+
+// Task 3.
+// Нехай функція `filterByPrice` повертає масив автомобілів ціна яких менша 
+// ніж значення параметра `threshold`.
