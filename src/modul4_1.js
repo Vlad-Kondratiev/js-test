@@ -680,7 +680,11 @@
 // bind(person1, logPerson)();
 // bind(person2, logPerson)();
 
+
+//======================================
 //=============== forEach ==============
+//======================================
+
 // Array.prototipe.forEach(callback(current value, index^ array), thisArg)
 // - Поэлементно перебирает ориг. массив
 // - Ничего не возвращает
@@ -1232,6 +1236,8 @@
 
 //================================================
 //================= forEach ======================
+//================================================
+
 // const numbers = [5, 10, 15, 20, 25];
 // console.log(numbers);
 
@@ -1804,16 +1810,263 @@ const allModels = getModels(cars);
 //   return carsWithDiscount;
 // };
 // Оптимізуемо:
-const makeCarsWithDiscount = (cars, discount) => cars.map(car => ({
-  ...car,
-  price: car.price - (car.price * discount) 
-}))
+// const makeCarsWithDiscount = (cars, discount) => cars.map(car => ({
+//   ...car,
+//   price: car.price - (car.price * discount) 
+// }))
 
-const carsDiscount = makeCarsWithDiscount(cars, 0.2);
-console.table(carsDiscount);
+// const carsDiscount = makeCarsWithDiscount(cars, 0.2);
+// console.table(carsDiscount);
 
 //=====================================================
 
 // Task 3.
 // Нехай функція `filterByPrice` повертає масив автомобілів ціна яких менша 
 // ніж значення параметра `threshold`.
+
+// const filterByPrice = (cars, threshold) => {
+//   const filteredCars = cars.filter((car) => {
+//     if (car.price < threshold) {
+//       return true
+//     }
+
+//     return false
+//   })
+
+//   return filteredCars
+// };
+// Оптимізуємо запис:
+const filterByPrice = (cars, threshold) => cars.filter(({price}) => price < threshold)    
+
+const filteredByPrice = filterByPrice(cars, 30000);
+// console.table(filteredByPrice);
+
+// ===============================================
+
+// Task 4.
+// Нехай функція `getCarsWithDiscount` повертає масив автомобілів властивість onSale яких true.
+
+const getCarsWithDiscount = cars => cars.filter(({onSale}) => onSale);
+
+const filteredBySale = getCarsWithDiscount(cars);
+// console.table(filteredBySale);
+
+// ===============================================
+
+//Task 5
+// Нехай функція `getCarsWithType` повертає масив автомобілів тип яких
+// збігається зі значенням параметра `type`.
+
+// const getCarsWithType = (cars, type) => {
+
+//   const filteredCars = cars.filter(car => {
+//     if (car.type === type) {
+//       return true
+//     }
+//   })
+
+//   return filteredCars
+// }
+
+// const getCarsWithType = (cars, type) => {
+
+//   const filteredCars = cars.filter((car) => {
+//     if (car.type === type) {
+//       return true
+//     }
+//   })
+
+//   return filteredCars
+// }
+// Оптимізуємо запис:
+const getCarsWithType = (cars, type) => cars.filter(car => car.type === type);
+
+const filteredByType = getCarsWithType(cars, 'suv');
+// console.table(filteredByType);
+
+//==================================================
+
+//Task 6.
+// нехай ф-я getCarByModel повертає одне авто за моделю
+
+// const getCarByModel = (cars, model) => {
+
+//   const foundCar = cars.find((car) => {
+//     if(car.model === model) {
+//       return true
+//     }
+//   })
+
+//   return foundCar
+// };
+
+const getCarByModel = (cars, model => cars.find(({model: carModel}) => carModel === model))
+
+
+const foundCarByModel = getCarByModel(cars, 'f-150');
+// console.log(foundCarByModel);
+
+//========================================
+
+// Task 7.
+// Нехай функція `sortByAscendingAmount` повертає новий масив автомобілів відсортований за 
+// зростанням значення якості `amount`.
+
+// const sortByAscendingAmount = cars => {
+
+//   const sortedCars = [...cars];
+
+//   sortedCars.sort((a, b) => {
+//     if (a.amount > b.amount) return 1;
+//     return -1;
+//   });
+
+//   return sortedCars
+// };
+
+const sortByAscendingAmount = cars => cars.sort((a, b) => a.amount - b.amount);
+
+const sortedByAmountCars = sortByAscendingAmount(cars);
+// console.log(sortedByAmountCars);
+
+//========================================
+
+//Task 8.
+// Нехай функція `sortByDescendingPrice` повертає новий масив автомобілів 
+// відсортований за зменшенням значення властивості `price`.
+
+const sortByDescendingPrice = cars => [...cars].sort((a, b) => a.price - b.price);
+
+const sortedByPrice = sortByDescendingPrice(cars);
+// console.table(sortedByPrice);
+
+//=======================================
+
+//Task 9.
+// Нехай функція `sortByModel` повертає новий масив автомобілів відсортований
+// за назвою моделі в алфавітному та зворотному алфавітному порядку, в залежності від значення параметра `order`.
+
+const sortByModel = (cars, order) => {
+  const sortedCars = [...cars]
+
+  // if (order === 'asc') {
+  //   sortedCars.sort((a, b) => {
+  //     if (a.model > b.model) {
+  //       return 1
+  //     }
+
+  //     return -1
+  //   })
+  // } else if (order === 'desc') {
+  //   sortedCars.sort((a, b) => {
+  //     if (a.model < b.model) {
+  //       return 1
+  //     }
+
+  //     return -1
+  //   })
+  // }
+    // Оптимізщваний запис:
+    if (order === 'asc') {    
+      sortedCars.sort((a, b) => a.model > b.model ? 1 : -1)
+    } else if(order === 'desc') {
+      sortedCars.sort((a, b) => a.model < b.model ? 1 : -1)
+    }
+
+  return sortedCars
+  
+};
+
+const cars1 = sortByModel(cars, 'asc');
+const cars2 = sortByModel(cars, 'desc');
+
+// console.log(cars1);
+// console.log(cars2);
+
+//=======================================
+
+// Task 10.
+// Нехай функція `getTotalAmount` повертає загальну кількість автомобілів (значення
+// властивостей `amount`).
+
+const getTotalAmount = cars => {
+
+  // const total = cars.reduce((total, car) => {
+
+  //   total += car.amount
+  //   return total
+  // }, 0)
+  // Оптимізщваний запис:
+  const total = cars.reduce((total, car) => total += car.amount, 0);
+
+  return total
+};
+
+// console.log('Total', getTotalAmount(cars));
+
+//========================================
+
+// Task 11.
+// Нехай функція `getAvailableCarNames` повертає масив моделей автомобілів, але
+// тільки тих, які зараз на розпродажі.
+// 1. спочатку треба отпримати відфільтровний масив, де тільки ті машини котрі на розпродажу
+// 2. Потім методом map, створити з фітфльтрованого масива автомобілів новий масив, де тільки назви моделей будуть
+
+// const getModelsOnSale = (cars) => {
+//   const carsOnSale = cars.filter( car => {
+//     return car.onSale
+//   })
+
+//   const carModels = carsOnSale.map( car => {
+//     return car.model
+//   })
+
+//   return carModels
+// };
+// Оптимізoваний запис:
+const getModelsOnSale = cars => cars.filter(car => car.onSale).map(car => car.model);
+
+// console.table(getModelsOnSale(cars));
+
+//=======================================
+
+//Task 12.
+// Нехай функція `getSortedCarsOnSale` повертає масив автомобілів на розпродажі
+// (Властивість onSale), відсортованих за зростанням ціни.
+
+const getSortedCarsOnSale = cars => {
+
+  const carsOnSale = cars.filter( car => {
+    return car.onSale
+  })
+
+  return carsOnSale.sort((a, b) => a.price - b.price) //sort змшнює масив, НЕ створює новий
+}
+// Оптимізoваний запис:
+// const getSortedCarsOnSale = cars => cars.filter(car => car.onSale).sort((a, b) => a.price - b.price)
+
+console.table(getSortedCarsOnSale(cars));
+
+//========================================
+//============= Замикання ================
+
+const sortCarsByProp = (cars, prop) => {
+
+  let countCalls = 0;
+
+  const sortCars = (param) => {
+    cars.sort((a, b) => a[prop] - b[prop]);
+    countCalls++;
+    console.log(countCalls)
+  }
+  return sortCars
+}
+
+const sortSomething = sortCarsByProp(cars, 'price');
+
+sortSomething(param)
+sortSomething()
+sortSomething()
+sortSomething()
+
+//==========================================
