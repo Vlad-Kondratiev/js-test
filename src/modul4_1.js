@@ -2045,28 +2045,28 @@ const getSortedCarsOnSale = cars => {
 // Оптимізoваний запис:
 // const getSortedCarsOnSale = cars => cars.filter(car => car.onSale).sort((a, b) => a.price - b.price)
 
-console.table(getSortedCarsOnSale(cars));
+// console.table(getSortedCarsOnSale(cars));
 
 //========================================
 //============= Замикання ================
 
-const sortCarsByProp = (cars, prop) => {
+// const sortCarsByProp = (cars, prop) => {
 
-  let countCalls = 0;
+//   let countCalls = 0;
 
-  const sortCars = (param) => {
-    cars.sort((a, b) => a[prop] - b[prop]);
-    countCalls++;
-    console.log(countCalls)
-  }
-  return sortCars
-}
+//   const sortCars = (param) => {
+//     cars.sort((a, b) => a[prop] - b[prop]);
+//     countCalls++;
+//     console.log(countCalls)
+//   }
+//   return sortCars
+// }
 
-const sortSomething = sortCarsByProp(cars, 'price');
+// const sortSomething = sortCarsByProp(cars, 'price');
 
-sortSomething(param)
-sortSomething()
-sortSomething()
-sortSomething()
+// sortSomething(param)
+// sortSomething()
+// sortSomething()
+// sortSomething()
 
 //==========================================
