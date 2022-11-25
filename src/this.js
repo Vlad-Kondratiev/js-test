@@ -328,14 +328,15 @@
 // - Оператор new
 // - Властивість function.prototype
 
-const Car = function (config) {
-    console.log(config);
+const Car = function ({ brand, model, price } = {}) {
+    // console.log(config);
+    // const {brand, model, price} = config;
     // Функція визивається у контексті створеного об'єкту
     // т.е. в this записується ссилка на нього
     // console.log(this);
-    this.brand = config.brand;
-    this.model = config.model;
-    this.price = config.price;
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
 
     // ссилка на об'єкт повертається на місце виклику new Car
 };
@@ -355,5 +356,9 @@ const myCar2 = new Car({
 });
 console.log(myCar2);
 
-const myCar3 = new Car();
+const myCar3 = new Car({
+    brand: 'Audi',
+    model: 'A6',
+    price: 65000,
+});
 console.log(myCar3);
