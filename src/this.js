@@ -167,21 +167,193 @@
 
 //==================================================
 
-const showThis = function (...args) {
-    console.log(args);
-    console.log('showThis -> this', this);
+// const showThis = function (...args) {
+//     console.log(args);
+//     console.log('showThis -> this', this);
+// };
+
+// showThis();
+
+// const objA = {
+//     a: 5,
+//     b: 10,
+// };
+
+// showThis.call(objA, 10, 20, 30, 40, 50);
+// showThis.apply(objA, [10, 20, 30, 40, 50]);
+
+// const objB = {
+//     c: 55,
+//     d: 11,
+// };
+
+// showThis.call(objB, 15, 25, 35, 45, 55);
+
+//================================================
+
+// const changeColor = function (color) {
+//     console.log('changeColor -> this', this);
+//     this.color = color;
+// };
+
+// const hat = {
+//     color: 'black',
+// };
+
+// // changeColor.call(hat, 'orange');
+// // console.log(hat);
+
+// const sweater = {
+//     color: 'green',
+// };
+
+// // changeColor.call(sweater, 'blue');
+// // console.log(sweater);
+
+// const changeHatColor = changeColor.bind(hat);
+// const changeSweaterColor = changeColor.bind(sweater);
+
+// changeColor();
+// changeHatColor('yellow');
+// changeSweaterColor('red');
+
+//==================================================
+
+// const counter = {
+//     value: 0,
+//     increment(value) {
+//         console.log('increment -> this', this);
+//         this.value += value;
+//     },
+//     decrement(value) {
+//         console.log('decrement -> this', this);
+//         this.value -= value;
+//     },
+// };
+
+// const updateCounter = function (value, operation) {
+//     // operation(value);
+//     counter.increment(10);
+// };
+
+// updateCounter(10, counter.increment); // this undefined
+// updateCounter(10, counter.increment.bind(counter)); // this counter
+// updateCounter(5, counter.decrement); // this undefined
+// updateCounter(5, counter.decrement.bind(counter)); // this counter
+// console.log(updateCounter);
+
+//====================================================
+
+// const counter = {
+//         value: 0,
+//         increment() {
+//             console.log('increment -> this', this);
+//             this.value += 1;
+//         },
+//         decrement() {
+//             console.log('decrement -> this', this);
+//             this.value -= 1;
+//         },
+//     };
+
+// const decrementBtn = document.querySelector('.js-decrement');    
+// const incrementtBtn = document.querySelector('.js-increment');
+// const valueEl = document.querySelector('.js-value');
+
+// console.log(decrementBtn);
+// console.log(incrementtBtn);
+// console.log(valueEl);
+
+// decrementBtn.addEventListener('click', function () {
+//     console.log('Click on decrementBtn');
+
+//     counter.decrement();
+//     console.log(counter);
+//     valueEl.textContent = counter.value;
+// });
+
+// incrementtBtn.addEventListener('click', function () {
+//     console.log('Click on incrementtBtn');
+
+//     counter.increment();
+//     console.log(counter);
+//     valueEl.textContent = counter.value;
+// });
+
+//======== Прототіпичне наслідування =============
+//================================================
+
+// const objC = {
+//     z: 5,
+// };
+
+// // console.log(objC.hasOwnProperty('z'));
+
+// const objB = Object.create(objC);
+// objB.y = 2;
+
+// // console.log(objC);
+
+// // console.log(objB);
+
+// // console.log(objB.y);
+// // console.log(objB.z);
+
+// const objA = Object.create(objB);
+// objA.x = 1;
+
+// console.log(objA.z);
+// console.log('objA', objA);
+// console.log(objA.hasOwnProperty('z'));
+// console.log(objA.hasOwnProperty('y'));
+// console.log(objA.hasOwnProperty('x'));
+
+// =========================================
+
+// // const dummyObj = {
+// //     message: 'Its own property of object'
+// // };
+
+// const dummyObj = Object.create({message: 'Its property of object prototipe'});
+// dummyObj.message = 'Its own property of object';
+// console.log('dummyObj', dummyObj);
+
+// console.log(dummyObj.message);
+
+
+//=== Основи ООП: клас, екземпляр (об'єкт), інтерфейс
+
+// функції-конструктори
+// - Іменовання
+// - Оператор new
+// - Властивість function.prototype
+
+const Car = function (config) {
+    console.log(config);
+    // Функція визивається у контексті створеного об'єкту
+    // т.е. в this записується ссилка на нього
+    // console.log(this);
+    this.brand = config.brand;
+    this.model = config.model;
+    this.price = config.price;
+
+    // ссилка на об'єкт повертається на місце виклику new Car
 };
 
-showThis();
+// Якщо функція визивається через new то створюється новий об'єкт
+const myCar = new Car({
+    brand: 'Audi', 
+    model: 'Q3', 
+    price: 35000,
+});
+console.log(myCar);
 
-const objA = {
-    a: 5,
-    d: 10,
-};
+const myCar2 = new Car({
+    brand: 'BMW',
+    model: 'x6',
+    price: 50000,
+});
+console.log(myCar2);
 
-showThis.call(objA, 10, 20, 30, 40, 50);
-
-
-
-
-
+const myCar3 = new Car();
+console.log(myCar3);
