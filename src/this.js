@@ -11,6 +11,19 @@
 
 // user.showTag();
 
+const obj = {
+    name: 'USER',
+    myTHIS: this,
+    custom: {
+        inCustom : 'Hello from custom',
+        foo() {
+            console.log(this);
+        }
+    }
+}
+
+obj.custom.foo();
+
 //========================================
 
 // const showTag = function () {
@@ -321,44 +334,303 @@
 // console.log(dummyObj.message);
 
 
-//=== Основи ООП: клас, екземпляр (об'єкт), інтерфейс
+//======= Основи ООП: клас, екземпляр (об'єкт), інтерфейс ========
+//================================================================
 
 // функції-конструктори
 // - Іменовання
 // - Оператор new
 // - Властивість function.prototype
 
-const Car = function ({ brand, model, price } = {}) {
-    // console.log(config);
-    // const {brand, model, price} = config;
-    // Функція визивається у контексті створеного об'єкту
-    // т.е. в this записується ссилка на нього
-    // console.log(this);
-    this.brand = brand;
-    this.model = model;
-    this.price = price;
+// const Car = function ({ brand, model, price } = {}) {
+//     // console.log(config);
+//     // const {brand, model, price} = config;
+//     // Функція визивається у контексті створеного об'єкту
+//     // т.е. в this записується ссилка на нього
+//     // console.log(this);
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
 
-    // ссилка на об'єкт повертається на місце виклику new Car
-};
+//     // ссилка на об'єкт повертається на місце виклику new Car
+// };
 
-// Якщо функція визивається через new то створюється новий об'єкт
-const myCar = new Car({
-    brand: 'Audi', 
-    model: 'Q3', 
-    price: 35000,
-});
-console.log(myCar);
+// Car.prototype.sayHi = function () {
+//     console.log('Car.prototype.sayHi -> this', this);
+//     console.log('Hello :) ');
+// };
 
-const myCar2 = new Car({
-    brand: 'BMW',
-    model: 'x6',
-    price: 50000,
-});
-console.log(myCar2);
+// Car.prototype.changePrice = function (newPrice) {
+//     this.price = newPrice;
+// };
 
-const myCar3 = new Car({
-    brand: 'Audi',
-    model: 'A6',
-    price: 65000,
-});
-console.log(myCar3);
+// console.log(Car.prototype);
+
+// // Якщо функція визивається через new то створюється новий об'єкт
+// const myCar = new Car({
+//     brand: 'Audi', 
+//     model: 'Q3', 
+//     price: 35000,
+// });
+// console.log(myCar);
+
+// myCar.sayHi();
+// myCar.changePrice(11111);
+
+// const myCar2 = new Car({
+//     brand: 'BMW',
+//     model: 'x6',
+//     price: 50000,
+// });
+// console.log(myCar2);
+
+// myCar2.sayHi();
+// myCar2.changePrice(55555);
+
+// const myCar3 = new Car({
+//     brand: 'Audi',
+//     model: 'A6',
+//     price: 65000,
+// });
+// console.log(myCar3);
+
+// myCar3.sayHi();
+// myCar3.changePrice(66666);
+
+//=================================================
+
+// const User = function ({ email, password } = {}) {
+//     this.email = email;
+//     this.password = password;
+// };
+
+// User.prototype.changeEmail = function (newMail) {
+//     this.email = newMail;
+// };
+
+// const mango = new User({ email: 'mango@gmail', password: 11111111 });
+
+// mango.changeEmail('my-new-mail@mail.com');
+
+// console.log(mango);
+
+// 1. У кожного об'єкту є властивість __proto__
+// 2. В цієй властивості лежить ссилка на його прототип, тобто інший об'єкт
+// 3. При створенні літералу об'єкта, у властивості __proto__ записується ссилка на функція.prototype
+// 4. функція-конструктор - це просто функція
+// 5. Всю магію робить оператор new
+// 6. Якщо функція визивається через new створюється порожній об'єкт
+// 7. Функція визивається у контексті створеного об'єкту
+// 8. У властивість this.__proto__ записується ссилка на об'єкт функція.prototype
+// 9. Ссилка на об'єкт повертається в місце виклику new функція()
+
+//======= Статичні властивості і методи =============
+//===================================================
+
+// Статичні властивості і методи доступні тільки в самому конструкторі
+// У статичних методах немає this
+
+// console.log(Math.round(5.1));
+// console.log(Math.PI);
+
+//===================== Класи ========================
+//====================================================
+
+// class Car1 {
+//     static description = 'Клас описуючий авто';
+
+//     static logInfo (carObj) {
+//         console.log('car.logInfo -> carObj', carObj);
+//     }
+
+//     constructor ({ brand, model, price } = {}) {
+//         console.log('Виконується конструктор');
+//         console.log(this);
+//         this.a = 5;
+//         this.b = 10;
+
+//         this.brand = brand;
+//         this._model = model;
+//         this._price = price;       
+//     }
+
+//     // changePrice (newPrice) {
+//     //     this.price = newPrice;
+//     // }
+
+//     get price () {
+//         return this._price;
+//     }
+
+//     set price (newPrice) {
+//         this._price = newPrice;
+//     }
+
+//     updateModel (newModel) {
+//         this.model = newModel;
+//     }
+// // setter
+//     set model(newModel) {
+//         this._model = newModel;
+//     }
+
+//     // setModel(newModel) {
+//     //     this.model = newModel;
+//     // }
+// // getter
+//     get model() {
+//         return this._model;
+//     }
+
+//     // getModel () {
+//     //     return this.model;
+//     // }
+// }
+
+// console.dir(Car1);
+
+// console.log(Car1.description);
+
+// const carInstance = new Car1({
+//     brand: 'Audi', 
+//     model: 'Q3', 
+//     price: 35000,
+// });
+
+// // Car1.logInfo(carInstance);
+
+// // console.log(Object.getPrototypeOf(carInstance) === Car1.prototype);
+
+// console.log(carInstance);
+
+// console.log(carInstance.model);
+
+// carInstance.model = 'Q4';
+
+// console.log(carInstance.model);
+
+// console.log(carInstance.price); // визов getter
+
+// carInstance.price = 55555;
+
+// console.log(carInstance.price);
+
+// // console.log(carInstance.getModel());
+
+// // carInstance.setModel('Q3');
+
+// // console.log(carInstance.getModel());
+
+// const obj = {
+//     a: 100,
+//     get a() {
+//         return this._a;
+//     },
+//     set a(x) {
+//         this._a = x;
+//     }
+// };
+
+// console.log(obj);
+
+//=============== Наслідування ===============
+//============================================
+
+// class Hero {
+//     constructor({ name = 'Hero', xp = 0 } = {}) {
+//         this.name = name;
+//         this.xp = xp;
+//     }
+
+//     gainXp(amount) {
+//         console.log(`${this.name} отримує ${amount} досвіду`)
+//         this.xp += amount;
+//     }   
+// }
+
+// // const mango = new Hero({ name: 'mango', xp: 1000});
+
+// // console.log(mango);
+
+// // mango.gainXp(1000);
+// class Warrior extends Hero {
+//     constructor({weapon, ...restProps } = {}) {
+//         super(restProps);
+
+//         this.weapon = weapon;
+//     }
+
+//     attack() {
+//         console.log(`${this.name} атакує використовуючи ${this.weapon}`)
+//     }
+// }
+
+// class Berserk extends Warrior {
+//     constructor({warcry, ...restProps} = {}) {
+//         super(restProps);
+
+//         this.warcry = warcry;
+//     }
+
+//     babyRage() {
+//         console.log(this.warcry);
+//     }
+// }
+
+// const ajax = new Berserk({
+//     name: 'ajax', 
+//     xp: 500, 
+//     weapon: 'axe', 
+//     warcry: 'waaaa'
+// });
+
+// console.log(ajax);
+
+// ajax.babyRage();
+// ajax.attack();
+// ajax.gainXp();
+
+// class Mage extends Hero {
+//     constructor({ spells, ...restProps } = {}) {
+//         super(restProps);
+
+//         this.spells = spells;
+//     }
+
+//     cast() {
+//         console.log();
+//         console.log(`${this.name} шось там кастує`);
+//     }
+// }
+
+// const mango = new Warrior({name: 'mango', xp: 1000, weapon: 'меч'});
+// console.log(mango);
+// mango.attack();
+// mango.gainXp(1000);
+
+// const poly = new Mage({name: 'poly', xp: 500, spells: ['fireball']});
+// console.log(poly);
+// poly.cast();
+// poly.gainXp(200);
+// console.log(
+//     'mango.__proto__ === Warrior.prototype ',
+//     mango.__proto__ === Warrior.prototype,
+// );
+
+// console.log(
+//     'Warrior.__proto__ === Hero.prototype ',
+//     Warrior.__proto__ === Hero.prototype
+// );
+
+// console.log(
+//     'Hero.__proto__ === Object.prototype ',
+//     Hero.__proto__ === Object.prototype
+// );
+
+// mango.gainXp(1000);
+
+// console.log(mango.__proto__ === Warrior.prototype);
+
+// console.log('Warrior.prototype', Warrior.prototype);
+
+// console.log(Warrior.prototype.__proto__ === Hero.prototype);
