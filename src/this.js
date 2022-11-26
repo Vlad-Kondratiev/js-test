@@ -11,18 +11,75 @@
 
 // user.showTag();
 
-const obj = {
-    name: 'USER',
-    myTHIS: this,
-    custom: {
-        inCustom : 'Hello from custom',
-        foo() {
-            console.log(this);
-        }
-    }
-}
+// const obj = {
+//     name: 'USER',
+//     myTHIS: this,
+//     custom: {
+//         inCustom : 'Hello from custom',
+//         foo() {
+//             console.log(this);
+//         }
+//     }
+// }
 
-obj.custom.foo();
+// obj.custom.foo();
+
+// ======================================
+
+// const obj = {
+//   name: 'Bobby',
+//   age: 15,
+
+//   sayHello() {
+//     console.log('this: ', this);
+//   },
+// };
+
+// // obj.sayHello(); // this obj
+
+// function fn(callback) {
+//   callback();
+// }
+
+// fn(obj.sayHello); // this undefined
+
+// const sayHelloCopy = obj.sayHello;
+
+// sayHelloCopy(); // this undefined
+
+// const peter = { name: 'Peter', age: 20 };
+// const chris = { name: 'Chris', age: 30 };
+
+// copy.call(obj); // this obj
+// copy.call(peter); // this peter
+
+// const bindedFn = copy.bind(chris);
+
+// bindedFn();
+
+//=====================================
+
+const obj = {
+  name: 'Bobby',
+  age: 15,
+
+  sayHello() {
+    console.log('this: ', this);
+  },
+
+  sayBye: () => {
+    console.log(this);
+  },
+};
+
+obj.sayHello();
+obj.sayBye();
+
+const fn = () => {
+  console.log(this);
+};
+
+fn(); // this undefined
 
 //========================================
 
@@ -75,7 +132,7 @@ obj.custom.foo();
 
 // // const xyz = user.showTag;
 
-// // xyz(); 
+// // xyz();
 
 // const invokeAction = function (action) {
 //     console.log(action);
@@ -139,11 +196,11 @@ obj.custom.foo();
 
 // const makeChangeColor = function () {
 //     const changeColor = function (color) {
-//         console.log('changeColor -> this', this);        
+//         console.log('changeColor -> this', this);
 //     };
 
 //     return changeColor;
-// }; 
+// };
 
 // const updateColor = makeChangeColor();
 // updateColor('yelow'); // this undefined
@@ -269,7 +326,7 @@ obj.custom.foo();
 //         },
 //     };
 
-// const decrementBtn = document.querySelector('.js-decrement');    
+// const decrementBtn = document.querySelector('.js-decrement');
 // const incrementtBtn = document.querySelector('.js-increment');
 // const valueEl = document.querySelector('.js-value');
 
@@ -333,7 +390,6 @@ obj.custom.foo();
 
 // console.log(dummyObj.message);
 
-
 //======= Основи ООП: клас, екземпляр (об'єкт), інтерфейс ========
 //================================================================
 
@@ -368,8 +424,8 @@ obj.custom.foo();
 
 // // Якщо функція визивається через new то створюється новий об'єкт
 // const myCar = new Car({
-//     brand: 'Audi', 
-//     model: 'Q3', 
+//     brand: 'Audi',
+//     model: 'Q3',
 //     price: 35000,
 // });
 // console.log(myCar);
@@ -451,7 +507,7 @@ obj.custom.foo();
 
 //         this.brand = brand;
 //         this._model = model;
-//         this._price = price;       
+//         this._price = price;
 //     }
 
 //     // changePrice (newPrice) {
@@ -492,8 +548,8 @@ obj.custom.foo();
 // console.log(Car1.description);
 
 // const carInstance = new Car1({
-//     brand: 'Audi', 
-//     model: 'Q3', 
+//     brand: 'Audi',
+//     model: 'Q3',
 //     price: 35000,
 // });
 
@@ -545,7 +601,7 @@ obj.custom.foo();
 //     gainXp(amount) {
 //         console.log(`${this.name} отримує ${amount} досвіду`)
 //         this.xp += amount;
-//     }   
+//     }
 // }
 
 // // const mango = new Hero({ name: 'mango', xp: 1000});
@@ -578,9 +634,9 @@ obj.custom.foo();
 // }
 
 // const ajax = new Berserk({
-//     name: 'ajax', 
-//     xp: 500, 
-//     weapon: 'axe', 
+//     name: 'ajax',
+//     xp: 500,
+//     weapon: 'axe',
 //     warcry: 'waaaa'
 // });
 
