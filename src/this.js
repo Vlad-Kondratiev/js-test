@@ -59,27 +59,67 @@
 
 //=====================================
 
+// const obj = {
+//   name: 'Bobby',
+//   age: 15,
+
+//   sayHello() {
+//     console.log('this: ', this);
+//   },
+
+//   sayBye: () => {
+//     console.log(this);
+//   },
+// };
+
+// obj.sayHello();
+// obj.sayBye();
+
+// const fn = () => {
+//   console.log(this);
+// };
+
+// fn(); // this undefined
+
+//========================================
+
+// const obj = {
+//   name: 'Bobby',
+//   age: 15,
+
+//   sayHello() {
+//     // console.log('this: ', this);
+//     const arrowFn = () => console.log('this: ', this);
+
+//     return arrowFn;
+//   },
+
+//   //   sayBye: () => {
+//   //     console.log(this);
+//   //   },
+// };
+
+// const fn = obj.sayHello();
+
+// fn(); // this = obj
+
+//========================================
+
 const obj = {
   name: 'Bobby',
   age: 15,
-
-  sayHello() {
+  fn1() {
     console.log('this: ', this);
-  },
 
-  sayBye: () => {
-    console.log(this);
+    function fn2() {
+      console.log('this2: ', this);
+    }
+    return fn2;
   },
 };
 
-obj.sayHello();
-obj.sayBye();
-
-const fn = () => {
-  console.log(this);
-};
-
-fn(); // this undefined
+obj.fn1();
+const fn2Copy = obj.fn1();
 
 //========================================
 
