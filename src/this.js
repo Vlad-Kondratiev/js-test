@@ -1,4 +1,6 @@
-//Контекст (this)
+//============= Контекст (this) ==============
+//============================================
+
 // - Де та як була об'явлена функція НЕ МАЄ ЖОДНОГО ЗНАЧЕННЯ!
 // - Контекст визначається В МОМЕНТ ВИЗОВУ ФУНКЦІЇ, якщо він не прив'язан явно
 
@@ -105,21 +107,35 @@
 
 //========================================
 
-const obj = {
-  name: 'Bobby',
-  age: 15,
-  fn1() {
-    console.log('this: ', this);
+// const obj = {
+//   name: 'Bobby',
+//   age: 15,
+//   fnClassic() {
+//     console.log('this: ', this);
 
-    function fn2() {
-      console.log('this2: ', this);
-    }
-    return fn2;
-  },
-};
+//     function fn2Classic() {
+//       console.log('this2: ', this);
+//     }
+//     return fn2Classic;
+//   },
 
-obj.fn1();
-const fn2Copy = obj.fn1();
+//   fnArrow() {
+//     console.log('this Arrow: ', this);
+
+//     const fn2Arrow = () => {
+//       console.log('this2 Arrow: ', this);
+//     };
+//     return fn2Arrow;
+//   },
+// };
+
+// obj.fnClassic(); // this obj
+// const fn2Copy = obj.fnClassic();
+// fn2Copy(); // this undefined
+
+// obj.fnArrow(); // this obj
+// const fn2ArrowCopy = obj.fnArrow();
+// fn2ArrowCopy(); // this obj
 
 //========================================
 
@@ -143,6 +159,7 @@ const fn2Copy = obj.fn1();
 // user.showUserTag();
 
 //=== Виклик без контексту, але об'явлена як метод об'єкта ===
+//============================================================
 
 // const user = {
 //     tag: 'Mango',
@@ -159,6 +176,7 @@ const fn2Copy = obj.fn1();
 // outerShowTag(); // this undefined
 
 //========= Контекст в callback-функціях ========
+//===============================================
 
 // const user = {
 //     tag: 'Mango',
@@ -730,3 +748,187 @@ const fn2Copy = obj.fn1();
 // console.log('Warrior.prototype', Warrior.prototype);
 
 // console.log(Warrior.prototype.__proto__ === Hero.prototype);
+
+//=============== bind ===============
+//====================================
+
+// const obj = {
+//   name: 'Bobby',
+//   age: 15,
+// };
+
+// function sayHello() {
+//   console.log(this);
+// }
+
+// function myBind(callback, context) {
+//   return function () {
+//     callback.call(context);
+//   };
+// }
+
+// sayHello.call(obj);
+// const sayHelloCopy = sayHello.bind(obj);
+// sayHelloCopy();
+
+// const sayHelloCopy2 = myBind(sayHello, obj);
+// sayHelloCopy2();
+
+//=============================================
+//======== Майстерня коштовностей =============
+
+//Напишіть метод calcTotalPrice(stoneName), який приймає назву каменю і розраховує та повертає загальну вартість каменів з таким ім'ям, ціною та кількістю з властивості stones.
+
+// const chopShop = {
+//   stones: [
+//     { name: 'Emerald', price: 1300, quantity: 4 },
+//     { name: 'Diamond', price: 2700, quantity: 3 },
+//     { name: 'Sapphire', price: 1400, quantity: 7 },
+//     { name: 'Ruby', price: 800, quantity: 2 },
+//   ],
+//   calcTotalPrice(stoneName) {
+//     const { price, quantity } = this.stones.find(({ name }) => name === stoneName);
+
+//     return price * quantity;
+//   },
+// };
+
+// console.log(chopShop.calcTotalPrice('Emerald')); // 5200
+// console.log(chopShop.calcTotalPrice('Diamond')); // 8100
+// console.log(chopShop.calcTotalPrice('Sapphire')); // 9800
+// console.log(chopShop.calcTotalPrice('Ruby')); // 1600
+
+//===================================================
+//============== Телефонна книга ====================
+
+//Виконайте рефакторинг методів об'єкту phonebook щоб код запрацював.
+
+// const phonebook = {
+//   contacts: [],
+
+//   add(contact) {
+//     const newContact = {
+//       list: 'default',
+//       ...contact,
+//       id: this.generateId(),
+//       createdAt: this.getDate(),
+//     };
+
+//     this.contacts.push(newContact);
+//   },
+
+//   generateId() {
+//     return '_' + Math.random().toString(36).substr(2, 9);
+//   },
+
+//   getDate() {
+//     return Date.now();
+//   },
+// };
+
+// console.log(phonebook.contacts);
+
+// phonebook.add({
+//   name: 'Mango',
+//   email: 'mango@mail.com',
+//   list: 'friends',
+// });
+
+// phonebook.add({
+//   name: 'Poly',
+//   email: 'poly@hotmail.com',
+// });
+
+// console.log(phonebook.contacts);
+
+//=================================
+//========== Калькулятор ==========
+// Створіть об'єкт calculator з трьома методами:
+
+// read(a, b)- приймає два значення та зберігає їх як властивості об'єкта.
+// add() - повертає суму збережених значень.
+// mult() - перемножує збережені значення та повертає результат.
+
+// const calculator = {
+//   a: 0,
+//   b: 0,
+//   read(a, b) {
+//     this.a = a;
+//     this.b = b;
+//   },
+
+//   add() {
+//     const { a = 0, b = 0 } = this;
+
+//     return this.a + this.b;
+//   },
+
+//   muil() {
+//     return this.a * this.b;
+//   },
+// };
+
+// console.log(calculator);
+
+// calculator.read(10, 2);
+// console.log(calculator);
+
+// console.log(calculator.add());
+// console.log(calculator.mult());
+
+//=================================
+//======== constructor ============
+
+// function Human(name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+
+// const bobby = new Human('bobby', 25);
+// const peter = new Human('peter', 25);
+// const chris = new Human('chris', 25);
+
+// console.log(bobby);
+// console.log(peter);
+// console.log(chris);
+
+//=================================
+//========== prototype ============
+// class Human {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// const bobby = new Human('bobby', 25);
+// const peter = new Human('peter', 25);
+// const chris = new Human('chris', 25);
+
+// console.log(bobby);
+// console.log(peter);
+// console.log(chris);
+
+//====================================
+// class Human {
+//   constructor({ name, age }) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class Doctor extends Human {
+//   constructor({ profession, ...rest }) {
+//     super(rest);
+
+//     this.profession = profession;
+//   }
+// }
+
+// const house = new Doctor({
+//   name: 'dr.House',
+//   age: 50,
+//   profession: 'therapist',
+// });
+
+// console.log(house);
