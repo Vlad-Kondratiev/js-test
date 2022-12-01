@@ -158,6 +158,42 @@
 
 // user.showUserTag();
 
+//=================================
+// 1. Завжди дивимось тип функціїї
+// 2. function declaration or expresion визначають this тим хто викликав функцію
+// 3. arrow бере батьківський this (але this може мати лише функцію)
+
+// const obj = {
+//   name: 'USER',
+//   myTHIS: this,
+//   arrow: () => {
+//     console.log(this);
+//     },
+
+//   customArrow: {
+//     inCustomArrow: 'Hello from custom arrow',
+//     arrow: () => {
+//       console.log(this);
+//     },
+//   },
+//   customForArrow: {
+//     inCustom: 'Hello from custom for arrow',
+//     foo() {
+//       console.log('declaration: ', this);
+
+//       const arrow = () => {
+//         console.log('in arrow function: ', this);
+//       };
+
+//       arrow();
+//     },
+//   },
+// };
+
+// obj.customForArrow.foo();
+// obj.arrow();
+// obj.customArrow.arrow();
+
 //=== Виклик без контексту, але об'явлена як метод об'єкта ===
 //============================================================
 
@@ -931,4 +967,321 @@
 //   profession: 'therapist',
 // });
 
-// console.log(house);
+// console.log(house)ж
+
+//==========================================
+//=========== call, apply, bind ============
+
+// const user = {
+//   name: 'Artem',
+//   city: 'lviv',
+//   sayHello(year, language) {
+//     console.log(`Hello! My name is ${this.name} from ${this.city}.
+//     I'm ${year}, I study ${language}`);
+//   },
+// };
+
+// // user.sayHello(28, 'html');
+
+// // const den = {
+// //     name: 'Den',
+// //     city: 'Odesa',
+// // };
+
+// // const kate = {
+// //     name: 'Kate',
+// //     city: 'Kiev',
+// // };
+
+// const alex = {
+//     name: 'Alex',
+//     city: "Kyiv",
+// };
+
+// // const args = [18, 'css'];
+
+// // user.sayHello.call(den, 22, 'js');
+// // // user.sayHello.apply(kate,[18, 'css']);
+// // user.sayHello.apply(kate, args);
+// user.sayHello.bind(alex);
+
+// const alexsay = user.sayHello.bind(alex);
+// alexsay(33, 'react.js');
+// alexsay(34, 'node.js');
+// // console.log(alexsay);
+
+//==============================================
+// Майстерня коштовностей
+// Напишіть метод calcTotalPrice(stoneName), який приймає назву каменю і розраховує та повертає загальну вартість каменів з таким ім'ям, ціною та кількістю з властивості stones.
+
+// const chopShop = {
+//     stones: [
+//       { name: 'Emerald', price: 1300, quantity: 4 },
+//       { name: 'Diamond', price: 2700, quantity: 3 },
+//       { name: 'Sapphire', price: 1400, quantity: 7 },
+//       { name: 'Ruby', price: 800, quantity: 2 },
+//     ],
+//     calcTotalPrice(stoneName) {
+        // const stone = this.stones.find(({name}) => name === stoneName);
+        // // варіант без деструктурізації:
+        // // const stone = this.stones.find(item => item.name === stoneName);
+          
+//         // if (stone) {
+//         //     return stone.price * stone.quantity
+//         // }
+//         // return 'ERROR'
+//         // ще варіант:
+//         return stone ? stone.price * stone.quantity : 'ERROR';
+//     },
+//   };
+  
+//   console.log(chopShop.calcTotalPrice('Emerald')); // 5200
+//   console.log(chopShop.calcTotalPrice('Diamond')); // 8100
+//   console.log(chopShop.calcTotalPrice('Sapphire')); // 9800
+//   console.log(chopShop.calcTotalPrice('Ruby')); // 1600
+//   console.log(chopShop.calcTotalPrice('quartz')); // ERROR
+
+//====================================================
+// Телефонна книга
+// Виконайте рефакторинг методів об'єкту phonebook щоб код запрацював.
+
+// const phonebook = {
+//     contacts: [],
+//     add(contact) {
+//       const newContact = {
+//         list: 'default',
+//         ...contact,
+//         id: this.generateId(),
+//         createdAt: this.getDate(),
+//       };
+//       this.contacts.push(newContact);
+//     },
+
+//     generateId() {
+//       return '_' + Math.random().toString(36).substr(2, 9);
+//     },
+
+//     getDate() {
+//       return new Date();
+//     },
+//   };
+  
+// phonebook.add({
+//   name: 'Mango',
+//   email: 'mango@mail.com',
+//   list: 'friends',
+// });
+
+// console.log(phonebook);
+
+
+//   console.log(
+//     phonebook.add({
+//       name: 'Poly',
+//       email: 'poly@hotmail.com',
+//     }),
+//   );
+
+//===================================
+// Калькулятор
+// Створіть об'єкт calculator з трьома методами:
+
+// read(a, b)- приймає два значення та зберігає їх як властивості об'єкта.
+// add() - повертає суму збережених значень.
+// mult() - перемножує збережені значення та повертає результат.
+
+// const calculator = {
+//     a: 0,
+//     b: 0,
+
+//     read (a, b) {
+//         this.a = a || 0; // лог оператор або: 0, NaN, null, undefined, '', false
+//         this.b = b ?? 0; // оператор нульового поєднання: null, undefined
+//     },
+
+//     add () {
+//         return this.a + this.b
+//     },
+
+//     mult () {
+//         return this.a * this.b
+//     }
+// };
+
+// // calculator.read(22, 11);
+// // // calculator.read();
+// // console.log(calculator.add());
+// // console.log(calculator.mult());
+
+// const calc = {
+//     a: 24,
+//     b: 100,
+// }
+
+// console.log(calculator.add.call(calc));
+
+//========================================
+//====== Прототипичне наслідування =======
+
+// const parent = {
+//     name: 'parent',
+//     sayHello () {
+//         console.log(`Hello I'm ${this.name}`);
+//     }
+// };
+
+// const obj = Object.create(parent);
+// obj.name = 'Artem';
+// console.log(obj);
+// console.log(obj.sayHello());
+
+// const user = Object.create(obj);
+// user.sayHello();
+
+//============ статичні властивості та методи ==============
+// class User {
+//     static counter = 0;
+//     static addUser() {
+//         this.counter += 1;
+//         console.log(this.counter);
+//     }
+//     #email;
+//     constructor(name, password, email) {
+//         this.#email = email;
+//         this.name = name;
+//         this.password = password;
+//         User.addUser();
+//     }
+//     sayHallo () {
+//         console.log(`Hello I'm ${this.name}`);
+//     }
+
+//     // приватний метод:
+//     #checkEmail(value) {
+//         const response = value.includes('@') && value.includes('.') && value.length > 10;
+
+//         return response;
+//     }
+
+//     // // getter
+//     // get emailValue() {
+//     //     console.log(this.#email);
+//     // }
+
+//     // // setter:
+//     // set emailValue(newValue) {
+//     //     if(newValue.includes('@') && newValue.includes('.') && newValue.length > 10) {
+//     //         this.#email = newValue
+//     //     }else{
+//     //         alert('invalid email')
+//     //     }
+//     // }
+//     set emailValue(newValue) {
+//             if(this.#checkEmail(newValue)) {
+//                 this.#email = newValue
+//             }else{
+//                 alert('invalid email')
+//             }
+//         }
+// };
+
+// const artem = new User('Artem', 'querty', 'test@mail.com');
+
+
+// class Admin extends User {
+//     constructor(name, password, email, secretPassword) {
+//         super(name, password, email);
+//         this.secretPassword = secretPassword;
+//     }
+//     deleteUser(email) {
+//         console.log(email);
+//     }
+// };
+
+// const dima = new Admin('Dima', '11111', 'test@gmail.com', 'querty123');
+// console.log(dima);
+// console.log(dima.sayHallo());
+
+// // artem.emailValue;
+// // // artem.emailValue = '1234';
+// // artem.emailValue = '123fvlekfnvdkmc@com.4';
+
+// // // console.log(artem.sayHallo());
+// // console.log(artem);
+// // console.log(dima);
+
+// ========================================
+// Блогер
+// Напиши клас Blogger для створення об'єкта блогера з наступними властивостями:
+
+// email - пошта, рядок
+// age - вік, число
+// numberOfPosts - кількість постів, число
+// topics - масив тем на яких спеціалізується блогер
+// Клас чекає один параметр - об'єкт налаштувань з однойменними властивостями.
+
+// Додай метод getInfo(), який, повертає рядок: User ${пошта} is ${вік} years old and has ${кількість постів} posts.
+
+// Додай метод updatePostCount(value), який у параметрі value приймає кількість постів, які потрібно додати користувачеві.
+
+// class User {
+//     constructor({name, age, numberOfPosts, topics}) {
+//         this.name = name;
+//         this.age = age;
+//         this.numberOfPosts = numberOfPosts;
+//         this.topics = topics;
+//     }
+
+//     getInfo() {
+//         return `User ${this.name} is ${this.age} years old and has ${this.numberOfPosts} posts.`
+//     }
+
+//     updatePostCount(value) {
+//         this.numberOfPosts += value;
+//     }
+// }
+
+// const mango = new User({
+//     name: 'mango@mail.com',
+//     age: 24,
+//     numberOfPosts: 20,
+//     topics: ['tech', 'cooking'],
+//   });
+// console.log(mango); 
+// console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
+// mango.updatePostCount(5);
+// console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
+  
+//   const poly = new User({
+//     name: 'poly@mail.com',
+//     age: 19,
+//     numberOfPosts: 17,
+//     topics: ['sports', 'gaming', 'health'],
+//   });
+
+// console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 17 posts
+// poly.updatePostCount(4);
+// console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
+
+// ==============================================
+// Сховище
+// Напиши клас Storage який створює об'єкти для керування складом товарів. При виклику отримуватиме один аргумент - початковий масив товарів і записуватиме його властивість items.
+
+// Додай методи класу:
+
+// getItems() - повертає масив товарів.
+// addItem(item) - отримує новий товар і додає його до поточних.
+// removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
+
+class Storage
+
+const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+
+const items = storage.getItems();
+console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+
+storage.addItem('🍌');
+console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+storage.removeItem('🍋');
+console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
