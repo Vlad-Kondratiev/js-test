@@ -1273,15 +1273,44 @@
 // addItem(item) - отримує новий товар і додає його до поточних.
 // removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
 
-class Storage
+class Storage {
+    constructor(arr) {
+        this.items = arr;
+    }
+    // getItems() {
+    //     return this.items;
+    // }
+    get productItems() {
+        return this.items;
+    }
+
+    set productItems(item) {
+        if(!this.items.includes(item)) {
+            this.items.push(item)
+        }       
+    }
+
+    removeItem(item) {
+        // if(!this.items.includes(item)) {
+        //     const idx = this.items.indexOf(item);
+        //     this.items.splice(idx, 1);
+        //     console.log(idx);
+        // }
+        const idx = this.items.indexOf(item);
+        if(!!~idx) {
+            this.items.splice(idx, 1);
+            console.log(idx);
+        }
+    }
+}
 
 const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
 
-const items = storage.getItems();
-console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+const items = storage.productItems;
+console.log(items); // [ '🍎', '🍋', '🍇', '🍑' ]
 
-storage.addItem('🍌');
-console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+storage.productItems = '🍌';
+console.log(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
 
 storage.removeItem('🍋');
 console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
