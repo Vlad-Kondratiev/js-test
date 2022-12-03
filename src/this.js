@@ -1273,44 +1273,486 @@
 // addItem(item) - отримує новий товар і додає його до поточних.
 // removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
 
-class Storage {
-    constructor(arr) {
-        this.items = arr;
-    }
-    // getItems() {
-    //     return this.items;
-    // }
-    get productItems() {
-        return this.items;
+// class Storage {
+//     constructor(arr) {
+//         this.items = arr;
+//     }
+//     // getItems() {
+//     //     return this.items;
+//     // }
+//     get productItems() {
+//         return this.items;
+//     }
+
+//     set productItems(item) {
+//         if(!this.items.includes(item)) {
+//             this.items.push(item)
+//         }       
+//     }
+
+//     removeItem(item) {
+//         // if(!this.items.includes(item)) {
+//         //     const idx = this.items.indexOf(item);
+//         //     this.items.splice(idx, 1);
+//         //     console.log(idx);
+//         // }
+//         const idx = this.items.indexOf(item);
+//         //як працює перевшрка за допомогою оператора Bitwise_Not (~) / -(x + 1):
+            // console.log(!!1);
+            // console.log(!!-1);
+            // console.log(!!0);
+            // console.log(!!~0); 
+//         // console.log(~0);
+//         // console.log(~-1);
+//         // console.log(!!~1);
+//         // -(idx + 1) === ~idx
+//         if(!!~idx) {
+//             this.items.splice(idx, 1);
+//             console.log(idx);
+//         }
+//     }
+// }
+
+// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+
+// const items = storage.productItems;
+// console.log(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+
+// storage.productItems = '🍌';
+// console.log(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+// storage.removeItem('🍋');
+// console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+
+//=========================================
+// User
+// Напиши клас User який створює об'єкт із властивостями login та email. Оголоси приватні властивості #login та #email, доступ до яких зроби через гетер та сетер login та email.
+
+// class User {
+//     #login;
+//     #email;
+//     constructor({email, login} = {}) {
+//         this.#email = email;
+//         this.#login = login;
+//     }
+
+//     get email() {
+//         return this.#email;
+//     }
+
+//     set email(value) {
+//         this.#email = value;
+//     }
+
+//     get login() {
+//         return this.#login;
+//     }
+    
+//     set login(value) {
+//         this.#login = value;
+//     }
+// }
+
+// const mango = new User({
+//     login: 'Mango',
+//     email: 'mango@dog.woof',
+// });
+
+// console.log(mango.login); // Mango
+// mango.login = 'Mangodoge';
+// console.log(mango.login); // Mangodoge
+  
+// const poly = new User({
+//   login: 'Poly',
+//   email: 'poly@mail.com',
+// });
+  
+// console.log(poly.login); // Poly
+// poly.login = 'Polycutie';
+// console.log(poly.login); // Polycutie
+
+//======================================
+// Example 4 - Нотатки
+// Напиши клас Notes який керує колекцією нотаток у властивості items. Замітка це об'єкт із властивостями text та priority. Додай класу статичну властивість Priority, у якому зберігатиметься об'єкт із пріоритетами.
+
+// {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGH: 'high'
+// }
+
+// Додай методи addNote(note), removeNote(text) та updatePriority(text, newPriority).
+
+// class Notes {
+//     static Priority = {
+//         LOW: 'low',
+//         NORMAL: 'normal',
+//         HIGH: 'high'
+//     }
+//     constructor(arr) {
+//         this.items = arr;
+
+//     }
+
+//     addNote(note) {
+
+//     }
+
+
+// }
+
+// const myNotes = new Notes([]);
+
+// myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
+
+// myNotes.addNote({
+//     text: 'Моя друга замітка',
+//     priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
+
+// myNotes.removeNote('Моя перша замітка');
+// console.log(myNotes.items);
+
+// myNotes.updateNote('Моя друга замітка', Notes.Priority.HIGH);
+// console.log(myNotes.items);
+
+//=======================================
+//========= Ще раз ЗАМИКАННЯ ============
+
+// function foo(param) {
+//     const value = 10;
+//     const value2 = 15;
+
+//     function boo() {
+//         return value + value2 * 12;
+//     }
+
+//     if (param > 20) {
+//         return boo
+//     } else {
+//         return value;
+//     }
+// };
+// console.log(foo(10));
+// console.log(foo(25)());
+
+//=========================================
+//=========================================
+
+// class Human {
+//     #age = 0;
+//     constructor(name, age) {
+//         this.name = name;
+//         this.#age = age;
+//     }
+
+//     get age() {
+//         return this.#age;
+//     }
+
+//     set age(newAge) {
+//         this.#age = newAge;
+//     }
+// }
+
+// const bobby = new Human('Bobby', 15);
+// console.log(bobby)
+
+//=============== account ================
+
+// class Account {
+//     #balance = 0;
+//     constructor(balance) {
+//         this.#balance = balance;
+//     }
+
+//     get balance() {
+//         return this.#balance;
+//     }
+
+//     set balance(newBalance) {
+//         if (newBalance < 0) return;
+//         this.#balance = newBalance;
+//     }
+// }
+
+// const deposit = new Account(1000);
+// console.log(deposit.balance);
+
+// deposit.balance = 500;
+// console.log(deposit.balance);
+
+// deposit.balance = -100;
+// console.log(deposit.balance);
+
+//============ prototype =============
+
+// class Human {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     sayHallo() {
+//         console.log(`Hello, my name is ${this.name}`);
+//     }
+// }
+
+// class Doctor extends Human {
+//     sayHallo() {
+//         console.log(`Hello, my name is ${this.name}. I can heal`);
+//     }
+
+//     heal() {
+//         console.log('I can heal');
+//     }
+// }
+
+// const bobby = new Human('Bobby', 15);
+// const house = new Doctor('dr.House', 50);
+
+// console.log(bobby);
+// console.log(house);
+// house.sayHallo();
+
+//========== ЗАМИКАННЯ =================
+
+// function Counter(x) {
+//     return function() {
+//         console.log(x++);
+//     };
+// }
+
+// const counter1 = new Counter(10);
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+// counter1();
+
+
+//======================================
+//============= Блогер =================
+
+// Напиши клас Blogger для створення об'єкта блогера з наступними властивостями:
+
+// email - пошта, рядок
+// age - вік, число
+// numberOfPosts - кількість постів, число
+// topics - масив тем на яких спеціалізується блогер
+// Клас чекає один параметр - об'єкт налаштувань з однойменними властивостями.
+
+// Додай метод getInfo(), який, повертає рядок: User ${пошта} is ${вік} years old and has ${кількість постів} posts.
+
+// Додай метод updatePostCount(value), який у параметрі value приймає кількість постів, які потрібно додати користувачеві.
+
+// class User {
+//     constructor({ name, age, numberOfPosts, topics }) {
+//         this.name = name;
+//         this.age = age;
+//         this.numberOfPosts = numberOfPosts;
+//         this.topics = topics;
+//     }
+
+//     getInfo() {
+//         return `Blogger ${this.name} is ${this.age} years old and has ${this.numberOfPosts} posts.`
+//     }
+
+//     updatePostCount(value) {
+//         this.numberOfPosts += value;
+//     }
+// }
+
+// const mango = new User({
+//     name: 'mango@mail.com',
+//     age: 24,
+//     numberOfPosts: 20,
+//     topics: ['tech', 'cooking'],
+//   });
+//   console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
+//   mango.updatePostCount(5);
+//   console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
+  
+//   const poly = new User({
+//     name: 'poly@mail.com',
+//     age: 19,
+//     numberOfPosts: 17,
+//     topics: ['sports', 'gaming', 'health'],
+//   });
+//   console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 17 posts
+//   poly.updatePostCount(4);
+//   console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
+
+
+//=======================================
+//======== Example 2 - Сховище ==========
+
+// Напиши клас Storage який створює об'єкти для керування складом товарів. При виклику отримуватиме один аргумент - початковий масив товарів і записуватиме його властивість items.
+
+// Додай методи класу:
+
+// getItems() - повертає масив товарів.
+// addItem(item) - отримує новий товар і додає його до поточних.
+// removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних. 
+
+// class Storage {
+//     constructor(items) {
+//         this.items = items;
+//     }
+
+//     getItems() {
+//         return this.items;
+//     }
+
+//     addItem(item) {
+//         this.items.push(item);
+//     }
+
+//     removeItem(name) {
+//         this.items = this.items.filter(item => item !== name);
+//     }
+// }
+
+// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+
+// const items = storage.getItems();
+// console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+
+// storage.addItem('🍌');
+// console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+// storage.removeItem('🍋');
+// console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+
+
+//====================================
+//======== Example 3 - User ==========
+
+// Напиши клас User який створює об'єкт із властивостями login та email. Оголоси приватні властивості #login та #email, доступ до яких зроби через гетер та сетер login та email.
+
+// class User {
+//     #email;
+//     #login;
+
+//     constructor({ login, email }) {
+//         this.#email = email;
+//         this.#login = login;
+//     }
+
+//     get login() {
+//         return this.#login;
+//     }
+
+//     set login(value) {
+//         this.#login = value;
+//     }
+// }
+
+// const mango = new User({
+//     login: 'Mango',
+//     email: 'mango@dog.woof',
+//   });
+  
+//   console.log(mango.login); // Mango
+//   mango.login = 'Mangodoge';
+//   console.log(mango.login); // Mangodoge
+  
+//   const poly = new User({
+//     login: 'Poly',
+//     email: 'poly@mail.com',
+//   });
+  
+//   console.log(poly.login); // Poly
+//   poly.login = 'Polycutie';
+//   console.log(poly.login); // Polycutie
+
+
+//=========================================
+//========= Example 4 - Нотатки ===========
+
+// Напиши клас Notes який керує колекцією нотаток у властивості items. Замітка це об'єкт із властивостями text та priority. Додай класу статичну властивість Priority, у якому зберігатиметься об'єкт із пріоритетами.
+
+// {
+//   LOW: 'low',
+//   NORMAL: 'normal',
+//   HIGH: 'high'
+// }
+// Додай методи addNote(note), removeNote(text) та updatePriority(text, newPriority).
+
+// class Notes {
+//     static Priority = {
+//         LOW: 'low',
+//         NORMAL: 'normal',
+//         HIGH: 'high',
+//     };
+
+//     constructor(items = []) {
+//         this.items = items;
+//     }
+
+//     addNote(note) {
+//         this.items.push(note);
+//     }
+
+//     removeNote(text) {
+//         this.items = this.items.filter((item) => item.text !== text);
+//     }
+
+//     updateNote(text, priority) {
+//         this.items = this.items.map(item => item.text === text ? {
+//             ...item,
+//             priority,
+//         } : item);
+//     }
+// }
+
+// const myNotes = new Notes([]);
+
+// myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
+
+// myNotes.addNote({
+//   text: 'Моя друга замітка',
+//   priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
+
+// myNotes.removeNote('Моя перша замітка');
+// console.log(myNotes.items);
+
+// myNotes.updateNote('Моя друга замітка', Notes.Priority.HIGH);
+// console.log(myNotes.items);
+
+
+//===================================
+//======= Example 5 - Toggle ========
+
+// Напишіть клас Toggle який приймає об'єкт налаштувань {isOpen: boolean} і оголошує одну властивість on - стан вкл/викл (true/false). За замовчуванням значення властивості on повинно бути false.
+
+class Toggle {
+    constructor({ isOpen = false } = {}) {
+        this.on = isOpen;
     }
 
-    set productItems(item) {
-        if(!this.items.includes(item)) {
-            this.items.push(item)
-        }       
-    }
-
-    removeItem(item) {
-        // if(!this.items.includes(item)) {
-        //     const idx = this.items.indexOf(item);
-        //     this.items.splice(idx, 1);
-        //     console.log(idx);
-        // }
-        const idx = this.items.indexOf(item);
-        if(!!~idx) {
-            this.items.splice(idx, 1);
-            console.log(idx);
-        }
+    toggle() {
+        // this.on = this.on ? false : true;
+        // теж саме:
+        this.on = !this.on;
     }
 }
 
-const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+const firstToggle = new Toggle({ isOpen: true });
+console.group('firstToggle');
+console.log(firstToggle.on);
+firstToggle.toggle();
+console.log(firstToggle.on);
+console.groupEnd('firstToggle');
 
-const items = storage.productItems;
-console.log(items); // [ '🍎', '🍋', '🍇', '🍑' ]
-
-storage.productItems = '🍌';
-console.log(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
-
-storage.removeItem('🍋');
-console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+const secondToggle = new Toggle();
+console.group('secondToggle');
+console.log(secondToggle.on);
+secondToggle.toggle();
+console.log(secondToggle.on);
+console.groupEnd('secondToggle');
