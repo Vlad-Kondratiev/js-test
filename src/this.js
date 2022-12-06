@@ -1731,28 +1731,39 @@
 
 // Напишіть клас Toggle який приймає об'єкт налаштувань {isOpen: boolean} і оголошує одну властивість on - стан вкл/викл (true/false). За замовчуванням значення властивості on повинно бути false.
 
-class Toggle {
-    constructor({ isOpen = false } = {}) {
-        this.on = isOpen;
-    }
+// class Toggle {
+//     constructor({ isOpen = false } = {}) {
+//         this.on = isOpen;
+//     }
 
-    toggle() {
-        // this.on = this.on ? false : true;
-        // теж саме:
-        this.on = !this.on;
-    }
+//     toggle() {
+//         // this.on = this.on ? false : true;
+//         // теж саме:
+//         this.on = !this.on;
+//     }
+// }
+
+// const firstToggle = new Toggle({ isOpen: true });
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
+
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
+
+//========================================
+//== Як із псевдо масиву створити масив ==
+
+function foo () {
+    console.log(arguments);
+    const arr = Array.from(arguments);
+    console.log(arr);
+    const arr1 = [...arguments];
+    console.log(arr1);
 }
-
-const firstToggle = new Toggle({ isOpen: true });
-console.group('firstToggle');
-console.log(firstToggle.on);
-firstToggle.toggle();
-console.log(firstToggle.on);
-console.groupEnd('firstToggle');
-
-const secondToggle = new Toggle();
-console.group('secondToggle');
-console.log(secondToggle.on);
-secondToggle.toggle();
-console.log(secondToggle.on);
-console.groupEnd('secondToggle');
