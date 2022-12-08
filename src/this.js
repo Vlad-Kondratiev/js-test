@@ -1022,10 +1022,10 @@
 //       { name: 'Ruby', price: 800, quantity: 2 },
 //     ],
 //     calcTotalPrice(stoneName) {
-        // const stone = this.stones.find(({name}) => name === stoneName);
-        // // варіант без деструктурізації:
-        // // const stone = this.stones.find(item => item.name === stoneName);
-          
+// const stone = this.stones.find(({name}) => name === stoneName);
+// // варіант без деструктурізації:
+// // const stone = this.stones.find(item => item.name === stoneName);
+
 //         // if (stone) {
 //         //     return stone.price * stone.quantity
 //         // }
@@ -1034,7 +1034,7 @@
 //         return stone ? stone.price * stone.quantity : 'ERROR';
 //     },
 //   };
-  
+
 //   console.log(chopShop.calcTotalPrice('Emerald')); // 5200
 //   console.log(chopShop.calcTotalPrice('Diamond')); // 8100
 //   console.log(chopShop.calcTotalPrice('Sapphire')); // 9800
@@ -1065,7 +1065,7 @@
 //       return new Date();
 //     },
 //   };
-  
+
 // phonebook.add({
 //   name: 'Mango',
 //   email: 'mango@mail.com',
@@ -1073,7 +1073,6 @@
 // });
 
 // console.log(phonebook);
-
 
 //   console.log(
 //     phonebook.add({
@@ -1187,7 +1186,6 @@
 
 // const artem = new User('Artem', 'querty', 'test@mail.com');
 
-
 // class Admin extends User {
 //     constructor(name, password, email, secretPassword) {
 //         super(name, password, email);
@@ -1247,11 +1245,11 @@
 //     numberOfPosts: 20,
 //     topics: ['tech', 'cooking'],
 //   });
-// console.log(mango); 
+// console.log(mango);
 // console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
 // mango.updatePostCount(5);
 // console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
-  
+
 //   const poly = new User({
 //     name: 'poly@mail.com',
 //     age: 19,
@@ -1287,7 +1285,7 @@
 //     set productItems(item) {
 //         if(!this.items.includes(item)) {
 //             this.items.push(item)
-//         }       
+//         }
 //     }
 
 //     removeItem(item) {
@@ -1298,10 +1296,10 @@
 //         // }
 //         const idx = this.items.indexOf(item);
 //         //як працює перевшрка за допомогою оператора Bitwise_Not (~) / -(x + 1):
-            // console.log(!!1);
-            // console.log(!!-1);
-            // console.log(!!0);
-            // console.log(!!~0); 
+// console.log(!!1);
+// console.log(!!-1);
+// console.log(!!0);
+// console.log(!!~0);
 //         // console.log(~0);
 //         // console.log(~-1);
 //         // console.log(!!~1);
@@ -1347,7 +1345,7 @@
 //     get login() {
 //         return this.#login;
 //     }
-    
+
 //     set login(value) {
 //         this.#login = value;
 //     }
@@ -1361,12 +1359,12 @@
 // console.log(mango.login); // Mango
 // mango.login = 'Mangodoge';
 // console.log(mango.login); // Mangodoge
-  
+
 // const poly = new User({
 //   login: 'Poly',
 //   email: 'poly@mail.com',
 // });
-  
+
 // console.log(poly.login); // Poly
 // poly.login = 'Polycutie';
 // console.log(poly.login); // Polycutie
@@ -1397,7 +1395,6 @@
 //     addNote(note) {
 
 //     }
-
 
 // }
 
@@ -1532,7 +1529,6 @@
 // counter1();
 // counter1();
 
-
 //======================================
 //============= Блогер =================
 
@@ -1574,7 +1570,7 @@
 //   console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
 //   mango.updatePostCount(5);
 //   console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
-  
+
 //   const poly = new User({
 //     name: 'poly@mail.com',
 //     age: 19,
@@ -1585,7 +1581,6 @@
 //   poly.updatePostCount(4);
 //   console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
 
-
 //=======================================
 //======== Example 2 - Сховище ==========
 
@@ -1595,7 +1590,7 @@
 
 // getItems() - повертає масив товарів.
 // addItem(item) - отримує новий товар і додає його до поточних.
-// removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних. 
+// removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
 
 // class Storage {
 //     constructor(items) {
@@ -1626,7 +1621,6 @@
 // storage.removeItem('🍋');
 // console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
 
-
 //====================================
 //======== Example 3 - User ==========
 
@@ -1654,20 +1648,19 @@
 //     login: 'Mango',
 //     email: 'mango@dog.woof',
 //   });
-  
+
 //   console.log(mango.login); // Mango
 //   mango.login = 'Mangodoge';
 //   console.log(mango.login); // Mangodoge
-  
+
 //   const poly = new User({
 //     login: 'Poly',
 //     email: 'poly@mail.com',
 //   });
-  
+
 //   console.log(poly.login); // Poly
 //   poly.login = 'Polycutie';
 //   console.log(poly.login); // Polycutie
-
 
 //=========================================
 //========= Example 4 - Нотатки ===========
@@ -1725,7 +1718,6 @@
 // myNotes.updateNote('Моя друга замітка', Notes.Priority.HIGH);
 // console.log(myNotes.items);
 
-
 //===================================
 //======= Example 5 - Toggle ========
 
@@ -1757,13 +1749,471 @@
 // console.log(secondToggle.on);
 // console.groupEnd('secondToggle');
 
+//====== ІТОГОВЕ ЗАЙНЯТТЯ 5 МОДУЛЮ =======
 //========================================
 //== Як із псевдо масиву створити масив ==
+//========================================
 
-function foo () {
-    console.log(arguments);
-    const arr = Array.from(arguments);
-    console.log(arr);
-    const arr1 = [...arguments];
-    console.log(arr1);
+// function foo() {
+//   console.log(arguments);
+//   // var 1:
+//   const arr = Array.from(arguments);
+//   console.log(arr);
+
+//   //var 2:
+//   const arr1 = [...arguments];
+//   console.log(arr1);
+// }
+
+// foo(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+//===========================================
+//= Відмінність type "module" та use strict =
+//===========================================
+
+// // 'use strict';
+
+// function foo() {
+//   console.log('declaration', this);
+// }
+// foo(); // type="module" - undefined
+// // without type="module" - Window
+// // 'use strict' - undefined
+
+// const boo = function () {
+//   console.log('expression', this);
+// };
+// boo(); // type="module" - undefined
+// // without type="module" - Window
+// // 'use strict' - undefined
+
+// const arrow = () => {
+//   console.log('arrow', this);
+// };
+// arrow(); // type="module" - undefined
+// // without type="module" - Window
+// // 'use strict' - Window
+
+//===========================================
+//====== ЗНАЧЕННЯ ЯКІ ПОВЕРТАЮТЬ false ======
+//===========================================
+
+// 1. null = false
+// 2. undefined = false
+// 3. 0 = false
+// 4. NaN = false
+// 5. '' = false
+// 6. false = false
+
+//===========================================
+// ======= Перевірка на пустий рядок: =======
+//===========================================
+
+// const value = '';
+
+// if (value) {
+//   console.log();
+// } else {
+//   console.log('empty');
+// }
+
+//===========================================
+// ======= Перевірка на пустий масив: =======
+//===========================================
+
+// const arr = [];
+
+// if (!arr.length) {
+//   console.log('empty');
+// }
+
+//===========================================
+//================ Замкнення ================
+//===========================================
+
+// function foo() {
+//   const obj = {
+//     name: 'User',
+//   };
+
+//   function boo(str) {
+//     console.log(str + obj.name);
+//   }
+//   return boo;
+// }
+
+// console.log(foo()('Hello my name is '));
+
+// ===========================================
+// ============ ДЕСТРУКТУРІЗАЦІЯ =============
+// ===========================================
+
+// const arr = [
+//   {
+//     name: 'user',
+//     age: 22,
+//     car: 'honda',
+//   },
+//   {
+//     name: 'user2',
+//     age: 33,
+//     car: 'bmw',
+//   },
+//   {
+//     name: 'user3',
+//     age: 44,
+//     car: 'suzuki',
+//   },
+// ];
+// const str = arr.reduce(
+//   (acc, { name, age, car }) => acc + `name ${name}, age ${age}, car ${car}\n`,
+//   ''
+// );
+// console.log(str);
+
+//===========================================
+//================= reduce ==================
+//===========================================
+
+// reduce - используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата, как аккумулятор.
+// треба задавати дефолтне значення, якщо ні то буде перший ітеруємий єлемент
+// - Не изменяет оригинальный массив.
+// - Поэлементно перебирает оригинальный массив.
+// - Возвращает что угодно.
+// - Делает что угодно.
+
+// // exp 1
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+// // const result = numbers.reduce((acc, value) => acc + value);
+// // console.log(result);
+
+// const result = numbers.reduce((acc, value) => {
+//   !(value % 2) ? acc.push(value) : acc;
+//   return acc;
+// }, []);
+// console.log(result);
+
+// // exp 2
+// const arr = [
+//   {
+//     name: 'user',
+//     age: 22,
+//     car: 'honda',
+//   },
+//   {
+//     name: 'user2',
+//     age: 33,
+//     car: 'bmw',
+//   },
+//   {
+//     name: 'user3',
+//     age: 44,
+//     car: 'suzuki',
+//   },
+// ];
+
+// const str = arr.reduce((acc, obj) => {
+//   console.log(acc);
+//   return acc + `name ${obj.name}, car ${obj.car}\n`;
+// });
+
+// console.log(str);
+
+//===========================================
+//============= Перебор об'єкта =============
+//===========================================
+
+// const user = {
+//   name: 'user',
+//   age: 22,
+//   car: 'honda',
+// };
+
+// // Достукатися до значення ключа можноЖ
+// // user.car - отримаємо 'honda'
+// // user['car] - отримаємо 'honda'
+
+// // По-перше маємо зібрати всі значення ключів в новий масив:
+// const arr = Object.keys(user);
+
+// // тепер перебираємо значення цього масиву за допомогою forEach:
+// arr.forEach(key => {
+//   console.log(user[key]); // отримуємо значення ключів
+// });
+
+// console.log(arr);
+
+// ===========================================
+// ================== slice ==================
+// ===========================================
+
+// const clients = ['Mango', 'Ajax', 'Polly', 'Kiwi'];
+// console.log(clients.slice(1, 3)); // 'Ajax', 'Polly'
+// console.log('clients:', clients);
+
+// ===========================================
+// ======= Відмінність for та for of =========
+// ===========================================
+
+// Працюючи з for ми створюємо лічильникб обираємо до якого елементу він прцює та вказуємо самостійно крок. Ми маємо доступ до індексу елемента і ми можемо змінити елемент в масиві.
+// for of лише перебірає масив від початку до кінця
+
+// ===========================================
+// ============ Стрілочна функція ============
+// ===========================================
+
+// В стрілочних функціях псевдо-масив arguments відсутній
+
+// const boo = () => {
+//   console.log(arguments); // Uncaught ReferenceError: arguments is not defined
+// };
+
+// boo(1, 2, 3, 4, 5);
+
+// щоб зібрати всі аргументи використовується оператор rest
+
+// const boo1 = (...args) => {
+//   console.log(args);
+// };
+
+// boo1(1, 2, 3, 4, 5);
+
+// Стрілочна функція не має свого this. Вона бере this з місця де вона оголошена.
+
+// const user = {
+//   name: 'user',
+//   getUser() {
+//     console.log('this getUser: ', this); // this getUser:  {name: 'user', getUser: ƒ}
+//     const boo = () => {
+//       console.log('this boo: ', this); // this getUser:  {name: 'user', getUser: ƒ}
+//     };
+//     boo();
+//   },
+// };
+
+// user.getUser();
+
+// ===========================================
+// ================ callback =================
+// ===========================================
+
+// callback - це лише посилання на функцію, котру ми передали в іншу функцію, як аргумент
+
+// // це буде callback
+// function boo() {
+//   console.log('Hello');
+// }
+
+// // це буде функція вищого порядку
+// function foo(value, name, callback) {}
+
+// foo(12, 'user', boo);
+
+// // або анонімна функція:
+// foo(12, 'user', function () {
+//   console.log('Hello');
+// });
+
+// // або стрілочна функція:
+// foo(12, 'user', () => console.log('Hello'));
+
+// ===========================================
+// ================          =================
+// ===========================================
+
+// const arr = [
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong', 'Adrian Cross'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman', 'Adrian Cross', 'Solomon Fokes'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male',
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female',
+//   },
+// ];
+
+// const getSortedFriends = users => {
+//   return users
+//     .flatMap(item => item.friends)
+//     .filter((name, idx, arr) => arr.indexOf(name) === idx)
+//     .sort((a, b) => a.localeCompare(b));
+// };
+
+// console.log(getSortedFriends(arr));
+
+// ===========================================
+// ================          =================
+// ===========================================
+
+// const products = [
+//   {
+//     id: 'sku1',
+//     qty: 5,
+//   },
+//   {
+//     id: 'sku2',
+//     qty: 15,
+//   },
+//   {
+//     id: 'sku3',
+//     qty: 50,
+//   },
+//   {
+//     id: 'sku2',
+//     qty: 55,
+//   },
+//   {
+//     id: 'sku1',
+//     qty: 33,
+//   },
+//   {
+//     id: 'sku3',
+//     qty: 5,
+//   },
+// ];
+
+// function foo(arr) {
+//   for (let i = 0; i < arr.length; i += 1) {
+//     // console.log('arr[i]: ', arr[i]);
+//     for (let j = i + 1; j < arr.length; j += 1) {
+//       //   console.log('arr[j]: ', arr[j]);
+//       if (arr[i].id === arr[j].id) {
+//         arr[i].qty += arr[j].qty;
+//         arr.splice(j, 1);
+//         j -= 1;
+//       }
+//     }
+//   }
+// }
+
+// foo(products);
+// console.log(products);
+
+// ===========================================
+// ================ reduce ===================
+// ===========================================
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// const getAllPropValues = propName =>
+//   products.reduce((acc, obj) => (obj.hasOwnProperty(propName) ? [...acc, obj[propName]] : acc), []);
+
+// // // теж саме без reduce:
+// // const getAllPropValues = propName => {
+// //   const result = [];
+
+// //   for (const product of products) {
+// //     if (product.hasOwnProperty(propName)) {
+// //       result.push(product[propName]);
+// //     }
+// //   }
+
+// //   return result;
+// // };
+
+// console.log(getAllPropValues('name'));
+// console.log(getAllPropValues('quantity'));
+// console.log(getAllPropValues('price'));
+// console.log(getAllPropValues('category'));
+
+// ===========================================
+// ================== bind ===================
+// ===========================================
+
+// const bobby = {
+//   name: 'Bobby',
+//   age: 15,
+// };
+
+// const peter = {
+//   name: 'Peter',
+//   age: 20,
+// };
+
+// function sayHello() {
+//   console.log(`Hello, my name is ${this.name}!`);
+// }
+
+// // sayHello.call(bobby);
+// // sayHello.apply(peter);
+
+// setTimeout(sayHello.bind(bobby), 2000);
+// setTimeout(sayHello.bind(peter), 4000);
+
+// ===========================================
+// =============== замикання =================
+// ===========================================
+
+function fn(x) {
+  return function () {
+    console.log(x);
+  };
 }
+
+let number = 10;
+const fn1 = fn(number);
+fn1(); // 10
+
+number = 555;
+fn1(); // 10, після оголошення значення не можна змінити
